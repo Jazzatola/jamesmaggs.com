@@ -3,6 +3,11 @@ name: Deploy to Fly.io
 on:
   push:
     branches: [main]
+    paths:
+      - 'public/**'
+      - 'Dockerfile'
+      - 'Caddyfile'
+      - 'fly.toml'
   workflow_dispatch:
 
 env:
