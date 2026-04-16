@@ -61,6 +61,8 @@
 			--accent-subtle:  rgba(245, 197, 66, 0.12);
 			--border:         #2e3352;
 			--border-subtle:  #252843;
+			--tag-bg:         var(--bg-elevated);
+			--tag-color:      var(--text-secondary);
 		}
 
 		/* ── Tokens: light theme ─────────────────────────────────────────── */
@@ -78,6 +80,8 @@
 			--accent-subtle:  rgba(16, 144, 168, 0.12);
 			--border:         #c5cde6;
 			--border-subtle:  #d5daf0;
+			--tag-bg:         var(--accent-subtle);
+			--tag-color:      var(--accent-text);
 		}
 
 		@media (prefers-color-scheme: light) {
@@ -94,6 +98,8 @@
 				--accent-subtle:  rgba(16, 144, 168, 0.12);
 				--border:         #c5cde6;
 				--border-subtle:  #d5daf0;
+				--tag-bg:         var(--accent-subtle);
+				--tag-color:      var(--accent-text);
 			}
 		}
 
@@ -613,16 +619,8 @@
 			text-transform: uppercase;
 			border-radius: var(--radius-full);
 			padding: var(--space-1) var(--space-3);
-		}
-
-		.tag-accent {
-			background: var(--accent-subtle);
-			color: var(--accent-text);
-		}
-
-		.tag-muted {
-			background: var(--bg-elevated);
-			color: var(--text-secondary);
+			background: var(--tag-bg);
+			color: var(--tag-color);
 		}
 
 		/* Card */
@@ -1110,10 +1108,10 @@
 			<div class="component-group">
 				<p class="component-group-label">Tags</p>
 				<div class="demo-surface">
-					<span class="tag tag-accent">Engineering</span>
-					<span class="tag tag-accent">Leadership</span>
-					<span class="tag tag-muted">2024</span>
-					<span class="tag tag-muted">Case Study</span>
+					<span class="tag">Engineering</span>
+					<span class="tag">Leadership</span>
+					<span class="tag">2024</span>
+					<span class="tag">Case Study</span>
 				</div>
 			</div>
 
