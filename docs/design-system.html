@@ -74,7 +74,7 @@
 			--text-secondary: #3d4668;
 			--text-muted:     #6b7598;
 			--accent:         #1090a8;
-			--accent-hover:   #0c7a90;
+			--accent-hover:   #1090a8;
 			--accent-subtle:  rgba(16, 144, 168, 0.12);
 			--border:         #c5cde6;
 			--border-subtle:  #d5daf0;
@@ -91,7 +91,7 @@
 				--text-secondary: #3d4668;
 				--text-muted:     #6b7598;
 				--accent:         #1090a8;
-				--accent-hover:   #0c7a90;
+				--accent-hover:   #1090a8;
 				--accent-subtle:  rgba(16, 144, 168, 0.12);
 				--border:         #c5cde6;
 				--border-subtle:  #d5daf0;
@@ -594,14 +594,12 @@
 
 		a {
 			color: var(--accent);
-			text-decoration: underline;
-			text-decoration-color: transparent;
-			text-underline-offset: 3px;
-			transition: text-decoration-color var(--duration-fast) var(--ease);
+			text-decoration: none;
+			transition: color var(--duration-fast) var(--ease);
 		}
 
 		a:hover {
-			text-decoration-color: currentColor;
+			color: var(--accent-hover);
 		}
 
 		/* Tags */
