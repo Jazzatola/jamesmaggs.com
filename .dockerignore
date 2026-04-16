@@ -1,0 +1,12 @@
+.git
+.github
+.gitignore
+.claude
+.idea
+**/.DS_Store
+docs
+CLAUDE.md
+README.md
+Dockerfile
+.dockerignore
+fly.toml
