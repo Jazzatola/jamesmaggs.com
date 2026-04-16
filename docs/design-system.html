@@ -151,11 +151,13 @@
 			text-transform: uppercase;
 			color: var(--text-muted);
 			text-decoration: none;
+			text-decoration-color: transparent;
 			transition: color var(--duration-fast) var(--ease);
 		}
 
 		.header-nav a:hover {
 			color: var(--text-primary);
+			text-decoration-color: transparent;
 		}
 
 		.header-inner {
@@ -577,13 +579,28 @@
 
 		.btn-ghost {
 			background: transparent;
-			color: var(--accent-text);
+			color: var(--accent);
 			padding-left: 0;
 			padding-right: 0;
+			transition: color var(--duration-fast) var(--ease);
 		}
 
 		.btn-ghost:hover {
 			color: var(--accent-hover);
+		}
+
+		/* Links */
+
+		a {
+			color: var(--accent);
+			text-decoration: underline;
+			text-decoration-color: transparent;
+			text-underline-offset: 3px;
+			transition: text-decoration-color var(--duration-fast) var(--ease);
+		}
+
+		a:hover {
+			text-decoration-color: currentColor;
 		}
 
 		/* Tags */
@@ -1109,6 +1126,15 @@
 						<p class="card-body">How a team of four reduced deploy time from 40 minutes to under 3, while shipping safer and more frequently.</p>
 						<button class="btn btn-ghost">Read more →</button>
 					</div>
+				</div>
+			</div>
+
+			<div class="component-group">
+				<p class="component-group-label">Links</p>
+				<div class="demo-surface">
+					<p style="font-size:var(--text-base);font-weight:400;color:var(--text-secondary);line-height:1.7;max-width:55ch;">
+						Read the <a href="#">full case study</a> or <a href="#">get in touch</a> to talk through the work in more detail.
+					</p>
 				</div>
 			</div>
 
