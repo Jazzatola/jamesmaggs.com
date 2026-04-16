@@ -1,4 +1,7 @@
 :8080 {
+	@apex host jamesmaggs.com
+	redir @apex https://www.jamesmaggs.com{uri} permanent
+
 	root * /srv
 	encode gzip zstd
 	file_server
