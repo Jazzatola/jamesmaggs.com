@@ -246,12 +246,12 @@
 			font-weight: 700;
 			letter-spacing: 0.1em;
 			text-transform: uppercase;
+			color: var(--text-secondary);
 		}
 
-		.type-label        { display: block; color: var(--text-secondary); }
-		.weight-label      { display: block; color: var(--text-secondary); margin-bottom: var(--space-2); }
-		.motion-card-label { color: var(--text-secondary); margin-bottom: var(--space-2); }
-		.card-eyebrow      { color: var(--text-secondary); margin-bottom: var(--space-3); }
+		.type-label, .weight-label        { display: block; }
+		.weight-label, .motion-card-label { margin-bottom: var(--space-2); }
+		.card-eyebrow                     { margin-bottom: var(--space-3); }
 
 		.type-size {
 			display: block;
@@ -384,7 +384,7 @@
 			color: var(--bg-base);
 		}
 
-.btn-secondary {
+		.btn-secondary {
 			background: transparent;
 			color: var(--text-primary);
 			border: 1px solid var(--border);
@@ -854,7 +854,6 @@
 	</footer>
 
 </div>
-
 
 </body>
 </html>
