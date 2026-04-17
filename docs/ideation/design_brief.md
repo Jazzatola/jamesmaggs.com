@@ -6,6 +6,7 @@ The site should follow a design that is similar to [Carlos Mendoza](../inspirati
 
 ## Colour Scheme
 
+
 ## Typography Choices
 
 The following typeface will be used at different sizes, weights and colours for all elements:
