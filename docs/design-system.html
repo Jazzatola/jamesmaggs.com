@@ -57,10 +57,7 @@
 			--text-primary:   #f0eef8;
 			--text-secondary: #a8b2cc;
 			--accent:         #f5c542;
-			--accent-subtle:  rgba(245, 197, 66, 0.12);
 			--border:         #2e3352;
-			--border-subtle:  #252843;
-			--swatch-border:  rgba(255, 255, 255, 0.06);
 			--tag-bg:         var(--bg-elevated);
 		}
 
@@ -73,11 +70,8 @@
 			--text-primary:   #252a40;
 			--text-secondary: #3d4668;
 			--accent:         #095265;
-			--accent-subtle:  rgba(9, 82, 101, 0.12);
 			--border:         #c5cde6;
-			--border-subtle:  #d5daf0;
-			--swatch-border:  rgba(0, 0, 0, 0.07);
-			--tag-bg:         var(--accent-subtle);
+			--tag-bg:         var(--bg-elevated);
 		}
 
 		@media (prefers-color-scheme: light) {
@@ -88,11 +82,9 @@
 				--text-primary:   #252a40;
 				--text-secondary: #3d4668;
 				--accent:         #095265;
-				--accent-subtle:  rgba(9, 82, 101, 0.12);
 				--border:         #c5cde6;
-				--border-subtle:  #d5daf0;
 				--swatch-border:  rgba(0, 0, 0, 0.07);
-				--tag-bg:         var(--accent-subtle);
+				--tag-bg:         var(--bg-elevated);
 			}
 		}
 
@@ -213,7 +205,7 @@
 			gap: var(--space-4);
 			margin-bottom: var(--space-12);
 			padding-bottom: var(--space-4);
-			border-bottom: 1px solid var(--border-subtle);
+			border-bottom: 1px solid var(--border);
 		}
 
 		.section-number {
@@ -262,7 +254,7 @@
 		.swatch {
 			border-radius: var(--radius-md);
 			overflow: hidden;
-			border: 1px solid var(--swatch-border);
+			border: 1px solid var(--border);
 		}
 
 		.swatch-colour {
@@ -312,11 +304,11 @@
 			align-items: baseline;
 			gap: var(--space-8);
 			padding: var(--space-6) 0;
-			border-bottom: 1px solid var(--border-subtle);
+			border-bottom: 1px solid var(--border);
 		}
 
 		.type-sample:first-child {
-			border-top: 1px solid var(--border-subtle);
+			border-top: 1px solid var(--border);
 		}
 
 		.type-label,
@@ -347,7 +339,7 @@
 			gap: var(--space-6);
 			margin-top: var(--space-12);
 			padding-top: var(--space-12);
-			border-top: 1px solid var(--border-subtle);
+			border-top: 1px solid var(--border);
 		}
 
 		.weight-sample {
@@ -508,7 +500,7 @@
 		/* Card */
 
 		.card {
-			background: var(--bg-surface);
+			background: var(--bg-elevated);
 			border: 1px solid var(--border);
 			border-radius: var(--radius-lg);
 			padding: var(--space-8);
@@ -558,7 +550,7 @@
 		footer {
 			margin-top: var(--space-32);
 			padding: var(--space-8) 0;
-			border-top: 1px solid var(--border-subtle);
+			border-top: 1px solid var(--border);
 			font-size: var(--text-sm);
 			color: var(--text-secondary);
 		}
