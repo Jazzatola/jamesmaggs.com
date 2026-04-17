@@ -39,7 +39,7 @@
 			--radius-lg:   12px;
 			--radius-full: 999px;
 
-			--ease:          cubic-bezier(0.4, 0, 0.2, 1);
+			--ease:          cubic-bezier(0.25, 0, 0, 1);
 			--duration-fast: 120ms;
 			--duration-base: 220ms;
 			--duration-slow: 380ms;
@@ -59,6 +59,13 @@
 			box-sizing: border-box;
 			margin: 0;
 			padding: 0;
+		}
+
+		/* ── Focus ───────────────────────────────────────────────────────── */
+
+		:focus-visible {
+			outline: 2px solid var(--accent);
+			outline-offset: 3px;
 		}
 
 		html {
@@ -105,6 +112,10 @@
 			color: var(--accent);
 			text-decoration: none;
 			transition: color var(--duration-fast) var(--ease);
+		}
+
+		.header-nav a:hover {
+			color: var(--text-primary);
 		}
 
 		.site-label {
@@ -338,6 +349,53 @@
 			color: var(--text-secondary);
 		}
 
+		.motion-card-demo {
+			height: 2px;
+			background: var(--accent);
+			border-radius: var(--radius-full);
+			margin-top: var(--space-4);
+			transform: scaleX(0);
+			transform-origin: left;
+			opacity: 0.8;
+		}
+
+		.motion-card:hover .motion-card-demo        { transform: scaleX(1); }
+		.motion-card--fast .motion-card-demo { transition: transform var(--duration-fast) var(--ease); }
+		.motion-card--base .motion-card-demo { transition: transform var(--duration-base) var(--ease); }
+		.motion-card--slow .motion-card-demo { transition: transform var(--duration-slow) var(--ease); }
+
+		.motion-ease-track {
+			position: relative;
+			height: 10px;
+			margin-top: var(--space-4);
+		}
+
+		.motion-ease-track::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 0;
+			right: 0;
+			height: 1px;
+			background: var(--border);
+			transform: translateY(-50%);
+		}
+
+		.motion-ease-dot {
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			background: var(--accent);
+			border-radius: 50%;
+			top: 0;
+			left: 0;
+			transition: left var(--duration-slow) var(--ease);
+		}
+
+		.motion-card:hover .motion-ease-dot {
+			left: calc(100% - 10px);
+		}
+
 		code {
 			font-size: 0.85em;
 			background: var(--bg-elevated);
@@ -384,6 +442,10 @@
 			color: var(--bg-base);
 		}
 
+		.btn-primary:hover {
+			filter: brightness(1.1);
+		}
+
 		.btn-secondary {
 			background: transparent;
 			color: var(--text-primary);
@@ -402,12 +464,21 @@
 			transition: color var(--duration-fast) var(--ease);
 		}
 
+		.btn-ghost:hover {
+			color: var(--text-primary);
+		}
+
 		/* Links */
 
 		a {
 			color: var(--accent);
 			text-decoration: none;
 			transition: color var(--duration-fast) var(--ease);
+		}
+
+		a:hover {
+			text-decoration: underline;
+			text-underline-offset: 3px;
 		}
 
 		/* Tags */
@@ -670,6 +741,15 @@
 				</div>
 				<div class="type-sample">
 					<div>
+						<span class="type-label">Large</span>
+						<span class="type-size">18px · 400</span>
+					</div>
+					<span style="font-size:var(--text-lg);font-weight:400;line-height:1.6;color:var(--text-secondary);max-width:58ch;display:block;">
+						Introductory paragraphs, expanded captions, supporting text that needs more presence than body but less weight than lead.
+					</span>
+				</div>
+				<div class="type-sample">
+					<div>
 						<span class="type-label">Body</span>
 						<span class="type-size">16px · 400</span>
 					</div>
@@ -758,25 +838,31 @@
 				<h2 class="section-title">Motion</h2>
 			</div>
 			<div class="motion-grid">
-				<div class="motion-card">
+				<div class="motion-card motion-card--fast">
 					<p class="motion-card-label">Fast</p>
 					<p class="motion-card-value">120ms</p>
 					<p class="motion-card-desc">Hover states, small UI feedback</p>
+					<div class="motion-card-demo"></div>
 				</div>
-				<div class="motion-card">
+				<div class="motion-card motion-card--base">
 					<p class="motion-card-label">Base</p>
 					<p class="motion-card-value">220ms</p>
-					<p class="motion-card-desc">Theme transitions, appearing elements</p>
+					<p class="motion-card-desc">Appearing elements, content transitions</p>
+					<div class="motion-card-demo"></div>
 				</div>
-				<div class="motion-card">
+				<div class="motion-card motion-card--slow">
 					<p class="motion-card-label">Slow</p>
 					<p class="motion-card-value">380ms</p>
 					<p class="motion-card-desc">Page-level transitions, large reveals</p>
+					<div class="motion-card-demo"></div>
 				</div>
 				<div class="motion-card">
 					<p class="motion-card-label">Easing</p>
-					<p class="motion-card-value" style="font-size:var(--text-base);font-weight:700;letter-spacing:0;">ease-in-out</p>
-					<p class="motion-card-desc" style="font-family:'Courier New',monospace;font-size:0.7rem;">cubic-bezier(0.4, 0, 0.2, 1)</p>
+					<p class="motion-card-value" style="font-size:var(--text-base);font-weight:700;letter-spacing:0;">ease-out</p>
+					<p class="motion-card-desc" style="font-family:'Courier New',monospace;font-size:0.7rem;">cubic-bezier(0.25, 0, 0, 1)</p>
+					<div class="motion-ease-track">
+						<div class="motion-ease-dot"></div>
+					</div>
 				</div>
 			</div>
 			<p class="motion-note">All transitions respect <code>prefers-reduced-motion: reduce</code>.</p>
