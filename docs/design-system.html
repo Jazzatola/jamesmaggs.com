@@ -44,13 +44,13 @@
 			--duration-base: 220ms;
 			--duration-slow: 380ms;
 
-			--bg-base:        #1a1a1e;
-			--bg-surface:     #232328;
-			--bg-elevated:    #2e2e36;
-			--text-primary:   #f0f0f0;
-			--text-secondary: #bebebe;
-			--accent:         #f5b020;
-			--border:         #3a3a42;
+			--bg-base:        oklch(14.1% 0.005 285.823);
+			--bg-surface:     oklch(21%   0.006 285.885);
+			--bg-elevated:    oklch(27.4% 0.006 286.033);
+			--text-primary:   oklch(96.7% 0.001 286.375);
+			--text-secondary: oklch(86.9% 0.005  56.366);
+			--accent:         oklch(79.5% 0.184  86.047);
+			--border:         oklch(37%   0.013 285.805);
 		}
 
 		/* ── Reset ───────────────────────────────────────────────────────── */
@@ -201,7 +201,7 @@
 		}
 
 		.swatch-var,
-		.swatch-hex,
+		.swatch-value,
 		.type-size,
 		.spacing-token,
 		.spacing-px,
@@ -210,7 +210,7 @@
 		}
 
 		.swatch-var,
-		.swatch-hex {
+		.swatch-value {
 			display: block;
 			font-size: 0.7rem;
 			color: var(--text-secondary);
@@ -551,59 +551,59 @@
 				<p class="group-label">Colour tokens</p>
 				<div class="swatch-grid">
 					<div class="swatch">
-						<div class="swatch-colour" style="background:#1a1a1e"></div>
+						<div class="swatch-colour" style="background:oklch(14.1% 0.005 285.823)"></div>
 						<div class="swatch-info">
 							<span class="swatch-name">Base</span>
 							<span class="swatch-var">--bg-base</span>
-							<span class="swatch-hex">#1a1a1e</span>
+							<span class="swatch-value">zinc-950</span>
 						</div>
 					</div>
 					<div class="swatch">
-						<div class="swatch-colour" style="background:#232328"></div>
+						<div class="swatch-colour" style="background:oklch(21% 0.006 285.885)"></div>
 						<div class="swatch-info">
 							<span class="swatch-name">Surface</span>
 							<span class="swatch-var">--bg-surface</span>
-							<span class="swatch-hex">#232328</span>
+							<span class="swatch-value">zinc-900</span>
 						</div>
 					</div>
 					<div class="swatch">
-						<div class="swatch-colour" style="background:#2e2e36"></div>
+						<div class="swatch-colour" style="background:oklch(27.4% 0.006 286.033)"></div>
 						<div class="swatch-info">
 							<span class="swatch-name">Elevated</span>
 							<span class="swatch-var">--bg-elevated</span>
-							<span class="swatch-hex">#2e2e36</span>
+							<span class="swatch-value">zinc-800</span>
 						</div>
 					</div>
 					<div class="swatch">
-						<div class="swatch-colour" style="background:#f0f0f0"></div>
+						<div class="swatch-colour" style="background:oklch(96.7% 0.001 286.375)"></div>
 						<div class="swatch-info">
 							<span class="swatch-name">Text primary</span>
 							<span class="swatch-var">--text-primary</span>
-							<span class="swatch-hex">#f0f0f0</span>
+							<span class="swatch-value">zinc-100</span>
 						</div>
 					</div>
 					<div class="swatch">
-						<div class="swatch-colour" style="background:#bebebe"></div>
+						<div class="swatch-colour" style="background:oklch(86.9% 0.005 56.366)"></div>
 						<div class="swatch-info">
 							<span class="swatch-name">Text secondary</span>
 							<span class="swatch-var">--text-secondary</span>
-							<span class="swatch-hex">#bebebe</span>
+							<span class="swatch-value">stone-300</span>
 						</div>
 					</div>
 					<div class="swatch">
-						<div class="swatch-colour" style="background:#f5b020"></div>
+						<div class="swatch-colour" style="background:oklch(79.5% 0.184 86.047)"></div>
 						<div class="swatch-info">
 							<span class="swatch-name">Accent</span>
 							<span class="swatch-var">--accent</span>
-							<span class="swatch-hex">#f5b020</span>
+							<span class="swatch-value">yellow-500</span>
 						</div>
 					</div>
 					<div class="swatch">
-						<div class="swatch-colour" style="background:#3a3a42"></div>
+						<div class="swatch-colour" style="background:oklch(37% 0.013 285.805)"></div>
 						<div class="swatch-info">
 							<span class="swatch-name">Border</span>
 							<span class="swatch-var">--border</span>
-							<span class="swatch-hex">#3a3a42</span>
+							<span class="swatch-value">zinc-700</span>
 						</div>
 					</div>
 				</div>
