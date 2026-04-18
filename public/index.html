@@ -178,16 +178,15 @@
 
 		.hero {
 			min-height: 100svh;
-			padding-top: calc(var(--header-height) + var(--space-16));
-			padding-bottom: var(--space-16);
+			padding-top: calc(var(--header-height) + var(--space-32));
+			padding-bottom: var(--space-8);
 		}
 
 		.hero-inner {
 			display: grid;
 			grid-template-columns: 1fr 340px;
-			align-items: center;
+			align-items: start;
 			gap: var(--space-16);
-			min-height: calc(100svh - var(--header-height));
 		}
 
 		.hero-eyebrow {
@@ -201,7 +200,7 @@
 		}
 
 		.hero-title {
-			font-size: var(--text-5xl);
+			font-size: var(--text-6xl);
 			font-weight: 600;
 			line-height: 1;
 			letter-spacing: -0.005em;
@@ -266,7 +265,7 @@
 			}
 
 			.hero-title {
-				font-size: var(--text-4xl);
+				font-size: var(--text-5xl);
 			}
 		}
 
