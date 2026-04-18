@@ -51,6 +51,7 @@
 			--text-primary:   oklch(93%  0.003 248);
 			--text-secondary: oklch(67%  0.025 271);
 			--accent:         oklch(80%  0.158  75);
+			--accent-hover:   oklch(88%  0.158  75);
 			--border:         oklch(48%  0.027 274);
 		}
 
@@ -116,7 +117,7 @@
 		}
 
 		.header-nav a:hover {
-			color: var(--text-primary);
+			color: var(--accent-hover);
 		}
 
 		.site-label {
@@ -466,7 +467,7 @@
 		}
 
 		.btn-ghost:hover {
-			color: var(--text-primary);
+			color: var(--accent-hover);
 		}
 
 		/* Links */
@@ -478,6 +479,7 @@
 		}
 
 		a:hover {
+			color: var(--accent-hover);
 			text-decoration: underline;
 			text-underline-offset: 3px;
 		}
