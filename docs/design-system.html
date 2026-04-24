@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Design System — jamesmaggs.com</title>
+	<title>Design System — www.jamesmaggs.com</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -50,6 +50,26 @@
 			--bg-elevated:    oklch(40%  0.027 275);
 			--text-primary:   oklch(93%  0.003 248);
 			--accent:         oklch(80%  0.158  75);
+		}
+
+		/* ── Skip link ──────────────────────────────────────────────────── */
+
+		.skip-link {
+			position: absolute;
+			top: -100%;
+			left: var(--space-4);
+			z-index: 999;
+			padding: var(--space-2) var(--space-4);
+			background: var(--accent);
+			color: var(--bg-base);
+			font-size: var(--text-sm);
+			font-weight: 700;
+			border-radius: var(--radius-md);
+			text-decoration: none;
+		}
+
+		.skip-link:focus {
+			top: var(--space-4);
 		}
 
 		/* ── Reset ───────────────────────────────────────────────────────── */
@@ -111,7 +131,6 @@
 			color: var(--accent);
 			text-decoration: none;
 		}
-
 
 		.site-label {
 			display: block;
@@ -177,7 +196,7 @@
 
 		.swatch-grid {
 			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+			grid-template-columns: 1fr;
 			gap: var(--space-3);
 		}
 
@@ -187,8 +206,17 @@
 			border: 1px solid var(--bg-elevated);
 		}
 
-		.swatch-colour {
+		.swatch-ramp {
+			display: flex;
 			height: 72px;
+		}
+
+		.swatch-shade {
+			flex: 1;
+		}
+
+		.swatch-shade--token {
+			flex: 2;
 		}
 
 		.swatch-info {
@@ -214,8 +242,30 @@
 		.swatch-var,
 		.swatch-value {
 			display: block;
-			font-size: 0.7rem;
+			font-size: 0.75rem;
 			line-height: 1.6;
+		}
+
+		.swatch-var { font-weight: 600; }
+
+		.swatch-ramp-labels {
+			display: flex;
+		}
+
+		.swatch-ramp-label {
+			flex: 1;
+		}
+
+		.swatch-ramp-label--token {
+			flex: 2;
+			font-family: 'Courier New', monospace;
+			font-size: 0.65rem;
+			font-weight: 700;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			text-align: center;
+			padding: var(--space-1) 0;
+			color: var(--accent);
 		}
 
 		/* ── Typography ──────────────────────────────────────────────────── */
@@ -232,6 +282,7 @@
 			gap: var(--space-8);
 			padding: var(--space-6) 0;
 			border-bottom: 1px solid var(--bg-elevated);
+			overflow: hidden;
 		}
 
 		.type-sample:first-child {
@@ -342,7 +393,8 @@
 			opacity: 0.8;
 		}
 
-		.motion-card:hover .motion-card-demo        { transform: scaleX(1); }
+		.motion-card:hover .motion-card-demo,
+		.motion-card:focus-within .motion-card-demo { transform: scaleX(1); }
 		.motion-card--fast .motion-card-demo { transition: transform var(--duration-fast) var(--ease); }
 		.motion-card--base .motion-card-demo { transition: transform var(--duration-base) var(--ease); }
 		.motion-card--slow .motion-card-demo { transition: transform var(--duration-slow) var(--ease); }
@@ -351,6 +403,7 @@
 			position: relative;
 			height: 10px;
 			margin-top: var(--space-4);
+			container-type: inline-size;
 		}
 
 		.motion-ease-track::before {
@@ -372,11 +425,12 @@
 			border-radius: 50%;
 			top: 0;
 			left: 0;
-			transition: left var(--duration-slow) var(--ease);
+			transition: translate var(--duration-slow) var(--ease);
 		}
 
-		.motion-card:hover .motion-ease-dot {
-			left: calc(100% - 10px);
+		.motion-card:hover .motion-ease-dot,
+		.motion-card:focus-within .motion-ease-dot {
+			translate: calc(100cqi - 10px) 0;
 		}
 
 		code {
@@ -403,20 +457,61 @@
 			gap: var(--space-4);
 		}
 
+		.component-usage {
+			font-size: var(--text-sm);
+			font-weight: 300;
+			margin-bottom: var(--space-6);
+			max-width: 60ch;
+		}
+
+		.demo-surface--column {
+			flex-direction: column;
+			align-items: stretch;
+			gap: var(--space-2);
+		}
+
+		.states-row {
+			display: flex;
+			align-items: center;
+			gap: var(--space-6);
+			padding: var(--space-2) 0;
+		}
+
+		.state-label {
+			font-size: var(--text-xs);
+			font-weight: 700;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			min-width: 60px;
+			flex-shrink: 0;
+		}
+
+		.states-buttons {
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--space-4);
+			align-items: center;
+		}
+
 		/* Buttons */
 
 		.btn {
 			font-family: inherit;
 			font-size: var(--text-sm);
 			font-weight: 700;
+			line-height: 1;
 			letter-spacing: 0.05em;
 			text-transform: uppercase;
-			border: none;
+			border: 1px solid transparent;
 			border-radius: var(--radius-md);
 			padding: var(--space-3) var(--space-6);
 			cursor: pointer;
 			display: inline-block;
 			text-decoration: none;
+			transition:
+				background-color var(--duration-fast) var(--ease),
+				color            var(--duration-fast) var(--ease),
+				border-color     var(--duration-fast) var(--ease);
 		}
 
 		.btn-primary {
@@ -424,17 +519,28 @@
 			color: var(--bg-base);
 		}
 
+		.btn-primary:hover {
+			background: oklch(70% 0.138 75);
+		}
+
 		.btn-secondary {
 			background: transparent;
 			color: var(--text-primary);
-			border: 1px solid var(--bg-elevated);
+			border-color: var(--bg-elevated);
+		}
+
+		.btn-secondary:hover {
+			border-color: var(--accent);
+			background: oklch(80% 0.158 75 / 0.06);
 		}
 
 		.btn-ghost {
 			background: transparent;
 			color: var(--accent);
-			padding-left: 0;
-			padding-right: 0;
+		}
+
+		.btn-ghost:hover {
+			color: oklch(87% 0.115 75);
 		}
 
 		/* Links */
@@ -445,6 +551,7 @@
 		}
 
 		a:hover {
+			color: oklch(87% 0.115 75);
 			text-decoration: underline;
 			text-underline-offset: 3px;
 		}
@@ -517,6 +624,17 @@
 
 		/* ── Responsive ──────────────────────────────────────────────────── */
 
+		@media (max-width: 768px) {
+			.weight-grid {
+				grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+			}
+
+			.stat-pair {
+				flex-direction: column;
+				gap: var(--space-6);
+			}
+		}
+
 		@media (max-width: 640px) {
 			.container {
 				padding: 0 var(--space-4);
@@ -554,6 +672,8 @@
 </head>
 <body>
 
+<a href="#main" class="skip-link">Skip to content</a>
+
 <div class="container">
 
 	<header>
@@ -570,7 +690,7 @@
 		</div>
 	</header>
 
-	<main>
+	<main id="main">
 
 		<!-- 01 Colour ─────────────────────────────────────────────────── -->
 
@@ -584,7 +704,24 @@
 				<p class="group-label">Colour tokens</p>
 				<div class="swatch-grid">
 					<div class="swatch">
-						<div class="swatch-colour" style="background:oklch(26% 0.030 278)"></div>
+						<div class="swatch-ramp" aria-hidden="true">
+							<div class="swatch-shade" style="background:oklch(5% 0.008 278)" title="oklch(5% 0.008 278)"></div>
+							<div class="swatch-shade" style="background:oklch(12% 0.018 278)" title="oklch(12% 0.018 278)"></div>
+							<div class="swatch-shade" style="background:oklch(19% 0.025 278)" title="oklch(19% 0.025 278)"></div>
+							<div class="swatch-shade swatch-shade--token" style="background:oklch(26% 0.030 278)" title="oklch(26% 0.030 278) — token"></div>
+							<div class="swatch-shade" style="background:oklch(35% 0.027 278)" title="oklch(35% 0.027 278)"></div>
+							<div class="swatch-shade" style="background:oklch(45% 0.022 278)" title="oklch(45% 0.022 278)"></div>
+							<div class="swatch-shade" style="background:oklch(56% 0.017 278)" title="oklch(56% 0.017 278)"></div>
+						</div>
+						<div class="swatch-ramp-labels" aria-hidden="true">
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label swatch-ramp-label--token">token</div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+						</div>
 						<div class="swatch-info">
 							<span class="swatch-name">Base</span>
 							<span class="swatch-var">--bg-base</span>
@@ -592,7 +729,24 @@
 						</div>
 					</div>
 					<div class="swatch">
-						<div class="swatch-colour" style="background:oklch(33% 0.028 277)"></div>
+						<div class="swatch-ramp" aria-hidden="true">
+							<div class="swatch-shade" style="background:oklch(8% 0.008 277)" title="oklch(8% 0.008 277)"></div>
+							<div class="swatch-shade" style="background:oklch(16% 0.018 277)" title="oklch(16% 0.018 277)"></div>
+							<div class="swatch-shade" style="background:oklch(24% 0.024 277)" title="oklch(24% 0.024 277)"></div>
+							<div class="swatch-shade swatch-shade--token" style="background:oklch(33% 0.028 277)" title="oklch(33% 0.028 277) — token"></div>
+							<div class="swatch-shade" style="background:oklch(43% 0.024 277)" title="oklch(43% 0.024 277)"></div>
+							<div class="swatch-shade" style="background:oklch(53% 0.019 277)" title="oklch(53% 0.019 277)"></div>
+							<div class="swatch-shade" style="background:oklch(64% 0.014 277)" title="oklch(64% 0.014 277)"></div>
+						</div>
+						<div class="swatch-ramp-labels" aria-hidden="true">
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label swatch-ramp-label--token">token</div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+						</div>
 						<div class="swatch-info">
 							<span class="swatch-name">Surface</span>
 							<span class="swatch-var">--bg-surface</span>
@@ -600,7 +754,24 @@
 						</div>
 					</div>
 					<div class="swatch">
-						<div class="swatch-colour" style="background:oklch(40% 0.027 275)"></div>
+						<div class="swatch-ramp" aria-hidden="true">
+							<div class="swatch-shade" style="background:oklch(11% 0.008 275)" title="oklch(11% 0.008 275)"></div>
+							<div class="swatch-shade" style="background:oklch(20% 0.018 275)" title="oklch(20% 0.018 275)"></div>
+							<div class="swatch-shade" style="background:oklch(30% 0.023 275)" title="oklch(30% 0.023 275)"></div>
+							<div class="swatch-shade swatch-shade--token" style="background:oklch(40% 0.027 275)" title="oklch(40% 0.027 275) — token"></div>
+							<div class="swatch-shade" style="background:oklch(51% 0.022 275)" title="oklch(51% 0.022 275)"></div>
+							<div class="swatch-shade" style="background:oklch(63% 0.017 275)" title="oklch(63% 0.017 275)"></div>
+							<div class="swatch-shade" style="background:oklch(74% 0.011 275)" title="oklch(74% 0.011 275)"></div>
+						</div>
+						<div class="swatch-ramp-labels" aria-hidden="true">
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label swatch-ramp-label--token">token</div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+						</div>
 						<div class="swatch-info">
 							<span class="swatch-name">Elevated</span>
 							<span class="swatch-var">--bg-elevated</span>
@@ -608,7 +779,24 @@
 						</div>
 					</div>
 					<div class="swatch">
-						<div class="swatch-colour" style="background:oklch(93% 0.003 248)"></div>
+						<div class="swatch-ramp" aria-hidden="true">
+							<div class="swatch-shade" style="background:oklch(57% 0.012 248)" title="oklch(57% 0.012 248)"></div>
+							<div class="swatch-shade" style="background:oklch(68% 0.008 248)" title="oklch(68% 0.008 248)"></div>
+							<div class="swatch-shade" style="background:oklch(80% 0.005 248)" title="oklch(80% 0.005 248)"></div>
+							<div class="swatch-shade swatch-shade--token" style="background:oklch(93% 0.003 248)" title="oklch(93% 0.003 248) — token"></div>
+							<div class="swatch-shade" style="background:oklch(96% 0.002 248)" title="oklch(96% 0.002 248)"></div>
+							<div class="swatch-shade" style="background:oklch(97% 0.001 248)" title="oklch(97% 0.001 248)"></div>
+							<div class="swatch-shade" style="background:oklch(99% 0.001 248)" title="oklch(99% 0.001 248)"></div>
+						</div>
+						<div class="swatch-ramp-labels" aria-hidden="true">
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label swatch-ramp-label--token">token</div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+						</div>
 						<div class="swatch-info">
 							<span class="swatch-name">Text primary</span>
 							<span class="swatch-var">--text-primary</span>
@@ -616,7 +804,24 @@
 						</div>
 					</div>
 					<div class="swatch">
-						<div class="swatch-colour" style="background:oklch(80% 0.158 75)"></div>
+						<div class="swatch-ramp" aria-hidden="true">
+							<div class="swatch-shade" style="background:oklch(48% 0.090 75)" title="oklch(48% 0.090 75)"></div>
+							<div class="swatch-shade" style="background:oklch(60% 0.115 75)" title="oklch(60% 0.115 75)"></div>
+							<div class="swatch-shade" style="background:oklch(70% 0.138 75)" title="oklch(70% 0.138 75)"></div>
+							<div class="swatch-shade swatch-shade--token" style="background:oklch(80% 0.158 75)" title="oklch(80% 0.158 75) — token"></div>
+							<div class="swatch-shade" style="background:oklch(87% 0.115 75)" title="oklch(87% 0.115 75)"></div>
+							<div class="swatch-shade" style="background:oklch(92% 0.072 75)" title="oklch(92% 0.072 75)"></div>
+							<div class="swatch-shade" style="background:oklch(96% 0.032 75)" title="oklch(96% 0.032 75)"></div>
+						</div>
+						<div class="swatch-ramp-labels" aria-hidden="true">
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label swatch-ramp-label--token">token</div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+							<div class="swatch-ramp-label"></div>
+						</div>
 						<div class="swatch-info">
 							<span class="swatch-name">Accent</span>
 							<span class="swatch-var">--accent</span>
@@ -785,28 +990,28 @@
 				<h2 class="section-title">Motion</h2>
 			</div>
 			<div class="motion-grid">
-				<div class="motion-card motion-card--fast">
+				<div class="motion-card motion-card--fast" tabindex="0">
 					<p class="motion-card-label">Fast</p>
 					<p class="motion-card-value">120ms</p>
 					<p class="motion-card-desc">Hover states, small UI feedback</p>
 					<div class="motion-card-demo"></div>
 				</div>
-				<div class="motion-card motion-card--base">
+				<div class="motion-card motion-card--base" tabindex="0">
 					<p class="motion-card-label">Base</p>
 					<p class="motion-card-value">220ms</p>
 					<p class="motion-card-desc">Appearing elements, content transitions</p>
 					<div class="motion-card-demo"></div>
 				</div>
-				<div class="motion-card motion-card--slow">
+				<div class="motion-card motion-card--slow" tabindex="0">
 					<p class="motion-card-label">Slow</p>
 					<p class="motion-card-value">380ms</p>
 					<p class="motion-card-desc">Page-level transitions, large reveals</p>
 					<div class="motion-card-demo"></div>
 				</div>
-				<div class="motion-card">
+				<div class="motion-card" tabindex="0">
 					<p class="motion-card-label">Easing</p>
 					<p class="motion-card-value" style="font-size:var(--text-base);font-weight:700;letter-spacing:0;">ease-out</p>
-					<p class="motion-card-desc" style="font-family:'Courier New',monospace;font-size:0.7rem;">cubic-bezier(0.25, 0, 0, 1)</p>
+					<p class="motion-card-desc" style="font-family:'Courier New',monospace;font-size:0.75rem;">cubic-bezier(0.25, 0, 0, 1)</p>
 					<div class="motion-ease-track">
 						<div class="motion-ease-dot"></div>
 					</div>
@@ -825,15 +1030,56 @@
 
 			<div class="component-group">
 				<p class="component-group-label">Buttons</p>
+				<p class="component-usage">Primary for the dominant action — one per view. Secondary for alternatives and parallel paths. Ghost for lower-emphasis standalone actions where a filled button would feel heavy.</p>
 				<div class="demo-surface">
-					<button class="btn btn-primary">Get in touch</button>
-					<button class="btn btn-secondary">View work</button>
-					<button class="btn btn-ghost">Learn more →</button>
+					<button type="button" class="btn btn-primary">Get in touch</button>
+					<button type="button" class="btn btn-secondary">View work</button>
+					<button type="button" class="btn btn-ghost">Learn more →</button>
+				</div>
+			</div>
+
+			<div class="component-group" id="interaction-states">
+				<p class="component-group-label">Interaction States</p>
+				<p class="component-usage">All state transitions use <code>--duration-fast</code> (120ms) with <code>--ease</code>. Hover shifts accent shades: primary darkens to D1, secondary gains accent border + 6% tint, ghost and links brighten to L1. Focus shows a 2px accent outline.</p>
+				<div class="demo-surface demo-surface--column">
+					<div class="states-row">
+						<span class="state-label">Default</span>
+						<div class="states-buttons">
+							<button type="button" class="btn btn-primary">Get in touch</button>
+							<button type="button" class="btn btn-secondary">View work</button>
+							<button type="button" class="btn btn-ghost">Learn more →</button>
+						</div>
+					</div>
+					<div class="states-row">
+						<span class="state-label">Hover</span>
+						<div class="states-buttons">
+							<button type="button" class="btn btn-primary" style="background:oklch(70% 0.138 75)">Get in touch</button>
+							<button type="button" class="btn btn-secondary" style="border-color:var(--accent);background:oklch(80% 0.158 75 / 0.06)">View work</button>
+							<button type="button" class="btn btn-ghost" style="color:oklch(87% 0.115 75)">Learn more →</button>
+						</div>
+					</div>
+					<div class="states-row">
+						<span class="state-label">Focus</span>
+						<div class="states-buttons">
+							<button type="button" class="btn btn-primary" style="outline:2px solid var(--accent);outline-offset:3px">Get in touch</button>
+							<button type="button" class="btn btn-secondary" style="outline:2px solid var(--accent);outline-offset:3px">View work</button>
+							<button type="button" class="btn btn-ghost" style="outline:2px solid var(--accent);outline-offset:3px">Learn more →</button>
+						</div>
+					</div>
+					<div class="states-row">
+						<span class="state-label">Disabled</span>
+						<div class="states-buttons">
+							<button type="button" class="btn btn-primary" disabled style="opacity:0.4;cursor:not-allowed">Get in touch</button>
+							<button type="button" class="btn btn-secondary" disabled style="opacity:0.4;cursor:not-allowed">View work</button>
+							<button type="button" class="btn btn-ghost" disabled style="opacity:0.4;cursor:not-allowed">Learn more →</button>
+						</div>
+					</div>
 				</div>
 			</div>
 
 			<div class="component-group">
 				<p class="component-group-label">Tags</p>
+				<p class="component-usage">Use for category labels, filters, or metadata. Keep text short — one or two words. Tags are non-interactive by default; don't use them as buttons.</p>
 				<div class="demo-surface">
 					<span class="tag">Engineering</span>
 					<span class="tag">Leadership</span>
@@ -844,36 +1090,44 @@
 
 			<div class="component-group">
 				<p class="component-group-label">Card</p>
+				<p class="component-usage">Use for discrete, scannable content units with a clear boundary. Cards sit on <code>--bg-elevated</code>. Each card should have a title and at most one action. Do not nest cards.</p>
 				<div class="demo-surface">
 					<div class="card">
 						<p class="card-eyebrow">Case Study</p>
 						<h3 class="card-title">Rebuilding the deployment pipeline</h3>
 						<p class="card-body">How a team of four reduced deploy time from 40 minutes to under 3, while shipping safer and more frequently.</p>
-						<button class="btn btn-ghost">Read more →</button>
+						<button type="button" class="btn btn-ghost">Read more →</button>
 					</div>
 				</div>
 			</div>
 
 			<div class="component-group">
 				<p class="component-group-label">Links</p>
-				<div class="demo-surface">
+				<p class="component-usage">Three link contexts with different hover behaviour. Inline links (body copy): accent colour, underline on hover, shifts to L1. Nav links (header): accent colour, no underline, colour shifts to L1. Ghost buttons (standalone actions): accent colour, no underline, colour shifts to L1.</p>
+				<div class="demo-surface demo-surface--column" style="gap:var(--space-4)">
 					<p style="font-size:var(--text-base);font-weight:400;line-height:1.7;max-width:55ch;">
 						Read the <a href="#">full case study</a> or <a href="#">get in touch</a> to talk through the work in more detail.
+					</p>
+					<p style="font-size:var(--text-xs);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">
+						<a href="#" style="color:var(--accent);text-decoration:none">About</a> &nbsp;
+						<a href="#" style="color:var(--accent);text-decoration:none">Skills</a> &nbsp;
+						<a href="#" style="color:var(--accent);text-decoration:none">Contact</a>
 					</p>
 				</div>
 			</div>
 
 			<div class="component-group">
 				<p class="component-group-label">Stats</p>
+				<p class="component-usage">High-signal numbers only. Use sparingly — maximum two stats per grouping. Pair each value with a short plain-language label, not a metric name.</p>
 				<div class="demo-surface">
 					<div class="stat-pair">
 						<div>
-							<p class="stat-value">14</p>
-							<p class="stat-label">Years experience</p>
+							<p class="stat-value">25+</p>
+							<p class="stat-label">Years' experience</p>
 						</div>
 						<div>
-							<p class="stat-value">40+</p>
-							<p class="stat-label">Engineers led</p>
+							<p class="stat-value">300</p>
+							<p class="stat-label">Max team size</p>
 						</div>
 					</div>
 				</div>
