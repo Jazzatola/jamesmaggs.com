@@ -1,12 +1,12 @@
 # Idea Brief
 
-A thoughtful, humane site that makes visitors curious — showing *how I think*. It should show I have good taste. Quietly confident, user-focused, and inviting, the site is designed to leave people with a simple feeling:
+A thoughtful, humane site that makes visitors curious - showing *how I think*. It should show I have good taste. Quietly confident, user-focused, and inviting, the site is designed to leave people with a simple feeling:
 
 > “This guy brings something different and vital for the future — and I want to talk to him.”
 
 ## Why It Matters
 
-This site is a personal expression of values — craftsmanship, empathy, and originality — and a signal to potential collaborators that I’m someone worth connecting with.
+This site is a personal expression of values - craftsmanship, empathy, and originality - and a signal to potential collaborators that I’m someone worth connecting with.
 
 ## Emotional Goals + Design Strategies
 
@@ -44,7 +44,14 @@ This site is a personal expression of values — craftsmanship, empathy, and ori
 
 ## Narrative / Theme
 
-This site isn't a showcase. It's a conversation starter — structured but spacious, quiet but memorable. Everything about the experience should reflect that spirit.
+The main hook will be the question "What's Next?" as the main site title. This communicates on several levels:
+- communicates curiosity.
+- communicates a focus on completion.
+- asks what does the future look like?
+- asks what future technologies are around the corner?
+- asks how can I help the reader?
+
+This site isn't a showcase. It's a conversation starter - structured but spacious, quiet but memorable. Everything about the experience should reflect that spirit.
 
 ## Success Looks Like…
 
@@ -53,9 +60,10 @@ This site isn't a showcase. It's a conversation starter — structured but spaci
 - Personal pride in sharing the site as a reflection of my thinking and craft
 
 ## Keywords
+- Future
 - Competence
 - Confidence
 - Empathy
-- Conversationa
+- Conversation
 - Integrity
 

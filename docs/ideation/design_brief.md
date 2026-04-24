@@ -1,8 +1,6 @@
 # Design Brief
 
-## Feel
-
-The site should follow a design that is similar to [Carlos Mendoza](../inspiration/carlos_mendoza.png).
+The site will be designed as a single page.
 
 ## Colour Scheme
 
@@ -14,11 +12,14 @@ The site should follow a design that is similar to [Carlos Mendoza](../inspirati
 | Text (Primary)   | #eaeaeb | oklch(93% 0.003 248)   |
 | Accent           | #fbae2d | oklch(80% 0.158 75)    |
 
+Three shades lighter or darker can be used for hover states or secondary text, etc.
+
 ## Typography Choices
 
-The site will use icons from [Phosphor](https://phosphoricons.com).
+The [League Spartan](https://www.theleagueofmoveabletype.com/league-spartan) typeface will be used at different sizes, weights and colours for all elements.
 
-The following typeface will be used at different sizes, weights and colours for all elements:
+The site will use icons from [Phosphor](https://phosphoricons.com) at sizes and weights that match the associated typography.
 
-- League
-  Spartan - [https://www.theleagueofmoveabletype.com/league-spartan](https://www.theleagueofmoveabletype.com/league-spartan)
+# Imagery
+
+Any images used on the site should tell a visual story that compliments the site theme of "What's Next?"
