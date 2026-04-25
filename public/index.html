@@ -33,7 +33,6 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;1,400&family=League+Spartan:wght@500;600;700;800&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" crossorigin="anonymous">
 
 	<style>
 
@@ -304,13 +303,13 @@
 		}
 
 		.header-contact a {
-			color: var(--text-secondary);
+			color: var(--text-primary);
 			text-decoration: none;
 			transition: color var(--duration-fast) var(--ease);
 		}
 
 		.header-contact a:hover {
-			color: var(--text-primary);
+			color: var(--text-secondary);
 			text-decoration: none;
 		}
 
@@ -318,7 +317,11 @@
 			display: flex;
 			align-items: center;
 			cursor: pointer;
-			font-size: 18px;
+		}
+
+		.icon-link svg {
+			width: 18px;
+			height: 18px;
 		}
 
 		/* ── Hero ────────────────────────────────────────────────────────── */
@@ -728,14 +731,13 @@
 		}
 
 		.footer-links a {
-			color: var(--text-secondary);
+			color: var(--text-primary);
 			text-decoration: none;
-			font-size: 18px;
 			transition: color var(--duration-fast) var(--ease);
 		}
 
 		.footer-links a:hover {
-			color: var(--text-primary);
+			color: var(--text-secondary);
 			text-decoration: none;
 		}
 
@@ -846,13 +848,13 @@
 
 		<div class="header-contact">
 			<a href="mailto:james@jamesmaggs.com" class="icon-link" aria-label="Send email">
-				<i class="ph ph-envelope" aria-hidden="true"></i>
+				<i data-feather="mail" aria-hidden="true"></i>
 			</a>
 			<a href="https://www.linkedin.com/in/jamesmaggs/" class="icon-link" aria-label="LinkedIn profile" target="_blank" rel="noopener noreferrer">
-				<i class="ph ph-linkedin-logo" aria-hidden="true"></i>
+				<i data-feather="linkedin" aria-hidden="true"></i>
 			</a>
 			<a href="https://github.com/Jazzatola" class="icon-link" aria-label="GitHub profile" target="_blank" rel="noopener noreferrer">
-				<i class="ph ph-github-logo" aria-hidden="true"></i>
+				<i data-feather="github" aria-hidden="true"></i>
 			</a>
 		</div>
 
@@ -1054,18 +1056,19 @@
 		<span class="footer-copy">© 2026 James Maggs</span>
 		<nav class="footer-links" aria-label="Footer navigation">
 			<a href="mailto:james@jamesmaggs.com" class="icon-link" aria-label="Send email">
-				<i class="ph ph-envelope" aria-hidden="true"></i>
+				<i data-feather="mail" aria-hidden="true"></i>
 			</a>
 			<a href="https://www.linkedin.com/in/jamesmaggs/" class="icon-link" aria-label="LinkedIn profile" target="_blank" rel="noopener noreferrer">
-				<i class="ph ph-linkedin-logo" aria-hidden="true"></i>
+				<i data-feather="linkedin" aria-hidden="true"></i>
 			</a>
 			<a href="https://github.com/Jazzatola" class="icon-link" aria-label="GitHub profile" target="_blank" rel="noopener noreferrer">
-				<i class="ph ph-github-logo" aria-hidden="true"></i>
+				<i data-feather="github" aria-hidden="true"></i>
 			</a>
 		</nav>
 	</div>
 </footer>
 
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
 <script>
 	document.documentElement.classList.add('js');
 
@@ -1104,6 +1107,8 @@
 	}, { threshold: 0.4 });
 
 	sections.forEach(section => navObserver.observe(section));
+
+	feather.replace({ 'stroke-width': 2 });
 </script>
 
 </body>
