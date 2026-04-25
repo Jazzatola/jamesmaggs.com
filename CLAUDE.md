@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This is a personal portfolio website for James Maggs, that showcases his work as a software engineer, manager and leader over the past 25+ years. It is a static website built with standards compliant html, css and javascript with no dependencies on libraries or frameworks.
+This is a personal portfolio website for James Maggs, that showcases his work as a software engineer, manager and leader over the past 25+ years. It is a static, single-page website built with standards compliant html, css and javascript with no dependencies on libraries or frameworks.
 
 The site is deployed on Fly.io with CI/CD via GitHub Actions.
 
@@ -14,3 +14,7 @@ Initial project research was performed before this build and is available in the
 - [Technical Brief](./docs/ideation/technical_brief.md) - defines the technology stack and outlines system architecture.
 
 A [design system](./docs/design-system.html) has been developed as the basis for the design.
+
+## Content
+
+An initial idea of the [site content](./docs/content.md) has also been provided.
