@@ -689,29 +689,16 @@
 			width: 100%;
 			max-width: 280px;
 			aspect-ratio: 3 / 4;
-			background: var(--bg-elevated);
 			border-radius: var(--radius-lg);
 			border: 1px solid var(--bg-elevated-l1);
-			display: flex;
-			align-items: center;
-			justify-content: center;
+			overflow: hidden;
 		}
 
-		.photo-placeholder {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: var(--space-3);
-			color: var(--text-secondary);
-			opacity: 0.4;
-		}
-
-		.photo-placeholder span {
-			font-family: var(--font-display);
-			font-size: var(--text-xs);
-			font-weight: 700;
-			letter-spacing: 0.1em;
-			text-transform: uppercase;
+		.contact-photo img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
 		}
 
 		/* ── Footer ──────────────────────────────────────────────────────── */
@@ -1053,13 +1040,8 @@
 					</a>
 				</div>
 
-				<div class="contact-photo reveal reveal-d1" role="img" aria-label="Photo of James Maggs">
-					<div class="photo-placeholder" aria-hidden="true">
-						<svg width="48" height="48" viewBox="0 0 256 256" fill="currentColor">
-							<path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/>
-						</svg>
-						<span>Photo</span>
-					</div>
+				<div class="contact-photo reveal reveal-d1">
+					<img src="/images/james.png" alt="James Maggs">
 				</div>
 			</div>
 		</div>
