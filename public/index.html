@@ -32,7 +32,7 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Gloock&family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" crossorigin="anonymous">
 
 	<style>
@@ -40,6 +40,10 @@
 		/* ── Tokens ──────────────────────────────────────────────────────── */
 
 		:root {
+			--font-display: 'League Spartan', system-ui, sans-serif;
+			--font-body:    'Gloock', Georgia, serif;
+
+			/* type scale */
 			--text-xs:   0.75rem;
 			--text-sm:   0.875rem;
 			--text-base: 1rem;
@@ -49,8 +53,12 @@
 			--text-3xl:  2.25rem;
 			--text-4xl:  3rem;
 			--text-5xl:  4rem;
-			--text-6xl:  5.5rem;
 
+			/* fluid headings */
+			--text-hero:    clamp(3.75rem, 11vw, 8.5rem);
+			--text-display: clamp(1.75rem, 3.5vw, 2.75rem);
+
+			/* spacing (4pt scale) */
 			--space-1:  0.25rem;
 			--space-2:  0.5rem;
 			--space-3:  0.75rem;
@@ -71,10 +79,10 @@
 			--radius-full: 999px;
 
 			--ease:          cubic-bezier(0.25, 0, 0, 1);
-			--ease-out:      cubic-bezier(0, 0, 0.4, 1);
+			--ease-out:      cubic-bezier(0.22, 1, 0.36, 1);
 			--duration-fast: 120ms;
 			--duration-base: 220ms;
-			--duration-slow: 380ms;
+			--duration-slow: 400ms;
 
 			--bg-base:        oklch(26%  0.030 278);
 			--bg-surface:     oklch(33%  0.028 277);
@@ -89,6 +97,8 @@
 
 			--interactive:    oklch(70%  0.130 230);
 			--interactive-d1: oklch(62%  0.130 230);
+
+			--rule:           oklch(36%  0.020 275);
 
 			--header-height: 60px;
 		}
@@ -111,7 +121,7 @@
 			padding: var(--space-2) var(--space-4);
 			background: var(--interactive);
 			color: var(--bg-base);
-			font-family: 'League Spartan', system-ui, sans-serif;
+			font-family: var(--font-display);
 			font-size: var(--text-sm);
 			font-weight: 700;
 			letter-spacing: 0.05em;
@@ -139,10 +149,9 @@
 		}
 
 		body {
-			font-family: 'League Spartan', system-ui, sans-serif;
+			font-family: var(--font-body);
 			font-size: var(--text-base);
-			font-weight: 400;
-			line-height: 1.6;
+			line-height: 1.65;
 			background-color: var(--bg-base);
 			color: var(--text-primary);
 		}
@@ -171,6 +180,7 @@
 
 		.eyebrow {
 			display: block;
+			font-family: var(--font-display);
 			font-size: var(--text-xs);
 			font-weight: 700;
 			letter-spacing: 0.14em;
@@ -179,14 +189,12 @@
 			margin-bottom: var(--space-4);
 		}
 
-		/* ── Hero entrance (CSS keyframes, no JS required) ───────────────── */
+		/* ── Animations ──────────────────────────────────────────────────── */
 
 		@keyframes fade-up {
 			from { opacity: 0; transform: translateY(20px); }
 			to   { opacity: 1; transform: translateY(0); }
 		}
-
-		/* ── Scroll reveal (requires JS class on <html>) ─────────────────── */
 
 		.js .reveal {
 			opacity: 0;
@@ -216,6 +224,14 @@
 			height: var(--header-height);
 			background-color: var(--bg-base);
 			border-bottom: 1px solid var(--bg-surface);
+			transition:
+				box-shadow var(--duration-base) var(--ease),
+				border-bottom-color var(--duration-base) var(--ease);
+		}
+
+		.site-header.scrolled {
+			border-bottom-color: var(--bg-elevated);
+			box-shadow: 0 8px 32px -4px oklch(14% 0.025 278 / 0.6);
 		}
 
 		.header-inner {
@@ -226,6 +242,7 @@
 		}
 
 		.header-name {
+			font-family: var(--font-display);
 			font-size: var(--text-sm);
 			font-weight: 700;
 			letter-spacing: 0.04em;
@@ -247,6 +264,7 @@
 		}
 
 		.primary-nav a {
+			font-family: var(--font-display);
 			font-size: var(--text-xs);
 			font-weight: 700;
 			letter-spacing: 0.1em;
@@ -260,6 +278,15 @@
 			color: var(--interactive-d1);
 			text-decoration: underline;
 			text-underline-offset: 3px;
+		}
+
+		.primary-nav a[aria-current="true"] {
+			color: var(--text-primary);
+		}
+
+		.primary-nav a[aria-current="true"]:hover {
+			color: var(--text-secondary);
+			text-decoration: none;
 		}
 
 		.header-contact {
@@ -303,21 +330,23 @@
 
 		.hero-eyebrow {
 			display: block;
+			font-family: var(--font-display);
 			font-size: var(--text-xs);
 			font-weight: 700;
 			letter-spacing: 0.14em;
 			text-transform: uppercase;
 			color: var(--text-secondary);
-			margin-bottom: var(--space-5);
+			margin-bottom: var(--space-6);
 			animation: fade-up 400ms var(--ease-out) 100ms both;
 		}
 
 		.hero-title {
-			font-size: var(--text-6xl);
-			font-weight: 600;
-			line-height: 1;
-			letter-spacing: -0.02em;
-			margin-bottom: var(--space-6);
+			font-family: var(--font-display);
+			font-size: var(--text-hero);
+			font-weight: 800;
+			line-height: 0.95;
+			letter-spacing: -0.03em;
+			margin-bottom: var(--space-10);
 			animation: fade-up 400ms var(--ease-out) 250ms both;
 		}
 
@@ -326,11 +355,12 @@
 		}
 
 		.hero-tagline {
+			font-family: var(--font-body);
 			font-size: var(--text-xl);
-			font-weight: 300;
-			line-height: 1.5;
-			max-width: 42ch;
-			margin-bottom: var(--space-8);
+			line-height: 1.72;
+			max-width: 44ch;
+			color: var(--text-secondary);
+			margin-bottom: var(--space-10);
 			animation: fade-up 400ms var(--ease-out) 380ms both;
 		}
 
@@ -338,6 +368,7 @@
 			display: inline-flex;
 			align-items: center;
 			gap: var(--space-2);
+			font-family: var(--font-display);
 			font-size: var(--text-xs);
 			font-weight: 700;
 			letter-spacing: 0.12em;
@@ -359,38 +390,11 @@
 			text-decoration: none;
 		}
 
-		.hero-photo {
-			width: 320px;
-			aspect-ratio: 3 / 4;
-			background: var(--bg-elevated);
-			border-radius: var(--radius-lg);
-			border: 1px solid var(--bg-elevated-l1);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-
-		.hero-photo-placeholder {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: var(--space-3);
-			color: var(--text-secondary);
-			opacity: 0.4;
-		}
-
-		.hero-photo-placeholder span {
-			font-size: var(--text-xs);
-			font-weight: 700;
-			letter-spacing: 0.1em;
-			text-transform: uppercase;
-		}
-
 		/* ── Section ─────────────────────────────────────────────────────── */
 
 		.section {
 			padding: var(--space-24) 0;
-			border-top: 1px solid var(--bg-surface);
+			border-top: 1px solid var(--rule);
 		}
 
 		.section-intro {
@@ -398,17 +402,18 @@
 		}
 
 		.section-title {
-			font-size: var(--text-3xl);
-			font-weight: 600;
-			line-height: 1.15;
-			letter-spacing: -0.01em;
+			font-family: var(--font-display);
+			font-size: var(--text-display);
+			font-weight: 700;
+			line-height: 1.1;
+			letter-spacing: -0.02em;
 		}
 
 		/* ── About ───────────────────────────────────────────────────────── */
 
 		.about-inner {
 			display: grid;
-			grid-template-columns: 1fr 340px;
+			grid-template-columns: 1fr 300px;
 			gap: var(--space-16);
 			align-items: start;
 		}
@@ -421,126 +426,157 @@
 
 		.about-body p {
 			font-size: var(--text-lg);
-			font-weight: 300;
-			line-height: 1.75;
+			line-height: 1.85;
 		}
 
 		.about-body em {
 			font-style: italic;
 			color: var(--accent);
-			font-weight: 400;
 		}
 
 		.about-sidebar {
 			display: flex;
 			flex-direction: column;
-			gap: var(--space-4);
+			gap: var(--space-3);
 		}
 
 		.value-card {
 			padding: var(--space-5) var(--space-6);
 			background: var(--bg-surface);
 			border-radius: var(--radius-md);
-			border-left: 2px solid var(--accent);
+			transition: background-color var(--duration-base) var(--ease);
+		}
+
+		.value-card:hover {
+			background-color: var(--bg-elevated);
+		}
+
+		.value-number {
+			font-family: var(--font-display);
+			font-size: var(--text-xs);
+			font-weight: 700;
+			letter-spacing: 0.12em;
+			color: var(--text-secondary);
+			opacity: 0.55;
+			margin-bottom: var(--space-2);
 		}
 
 		.value-label {
+			font-family: var(--font-display);
 			font-size: var(--text-xs);
 			font-weight: 700;
 			letter-spacing: 0.12em;
 			text-transform: uppercase;
 			color: var(--accent);
-			margin-bottom: var(--space-2);
+			margin-bottom: var(--space-3);
 		}
 
 		.value-text {
+			font-family: var(--font-body);
 			font-size: var(--text-sm);
-			font-weight: 400;
-			line-height: 1.65;
+			line-height: 1.75;
 			color: var(--text-secondary);
 		}
 
 		/* ── Skills ──────────────────────────────────────────────────────── */
 
-		.skills-grid {
+		.skills-list {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.skill-item {
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: var(--space-6);
+			grid-template-columns: 240px 1fr;
+			gap: var(--space-12);
+			padding: var(--space-12) 0;
+			border-top: 1px solid var(--rule);
 		}
 
-		.skill-card {
-			padding: var(--space-8);
-			background: var(--bg-surface);
-			border-radius: var(--radius-md);
-			border: 1px solid transparent;
-			transition:
-				border-color var(--duration-base) var(--ease),
-				background-color var(--duration-base) var(--ease);
+		.skill-item:last-child {
+			border-bottom: 1px solid var(--rule);
 		}
 
-		.skill-card:hover {
-			background-color: var(--bg-elevated);
-			border-color: var(--bg-elevated-l1);
+		.skill-meta {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-2);
+			padding-top: var(--space-1);
 		}
 
-		.skill-icon {
-			display: block;
-			width: 36px;
-			height: 36px;
-			color: var(--accent);
-			margin-bottom: var(--space-6);
+		.skill-num {
+			font-family: var(--font-display);
+			font-size: var(--text-xs);
+			font-weight: 700;
+			letter-spacing: 0.12em;
+			color: var(--text-secondary);
+			opacity: 0.5;
 		}
 
 		.skill-name {
-			font-size: var(--text-lg);
-			font-weight: 600;
-			letter-spacing: -0.01em;
-			margin-bottom: var(--space-3);
+			font-family: var(--font-display);
+			font-size: var(--text-2xl);
+			font-weight: 700;
+			letter-spacing: -0.02em;
+			line-height: 1.1;
+			color: var(--text-primary);
+		}
+
+		.skill-content {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-4);
 		}
 
 		.skill-hook {
-			font-size: var(--text-sm);
-			font-weight: 400;
+			font-family: var(--font-body);
+			font-size: var(--text-xl);
 			font-style: italic;
 			color: var(--accent);
-			line-height: 1.5;
-			margin-bottom: var(--space-4);
+			line-height: 1.6;
 		}
 
 		.skill-body {
-			font-size: var(--text-sm);
-			font-weight: 400;
-			line-height: 1.7;
+			font-family: var(--font-body);
+			font-size: var(--text-base);
+			line-height: 1.85;
 			color: var(--text-secondary);
+			max-width: 62ch;
 		}
 
 		/* ── Recognition ─────────────────────────────────────────────────── */
 
-		.stat-row {
+		.stats-display {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
-			gap: var(--space-6);
-			margin-bottom: var(--space-10);
+			border-top: 1px solid var(--rule);
+			border-bottom: 1px solid var(--rule);
+			margin-bottom: var(--space-16);
 		}
 
-		.stat-card {
-			padding: var(--space-8);
-			background: var(--bg-surface);
-			border-radius: var(--radius-md);
-			text-align: center;
+		.stat-item {
+			padding: var(--space-10) 0;
+			padding-right: var(--space-8);
 		}
 
-		.stat-number {
+		.stat-item + .stat-item {
+			padding-left: var(--space-8);
+			border-left: 1px solid var(--rule);
+		}
+
+		.stat-value {
 			display: block;
-			font-size: var(--text-5xl);
-			font-weight: 700;
+			font-family: var(--font-display);
+			font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+			font-weight: 800;
 			line-height: 1;
-			letter-spacing: -0.03em;
+			letter-spacing: -0.04em;
 			color: var(--accent);
-			margin-bottom: var(--space-2);
+			margin-bottom: var(--space-3);
 		}
 
 		.stat-label {
+			font-family: var(--font-display);
 			font-size: var(--text-xs);
 			font-weight: 700;
 			letter-spacing: 0.1em;
@@ -555,25 +591,36 @@
 		}
 
 		.testimonial {
-			padding: var(--space-8);
+			position: relative;
+			padding: var(--space-8) var(--space-8) var(--space-8);
 			background: var(--bg-surface);
 			border-radius: var(--radius-md);
-			border-top: 2px solid var(--bg-elevated-l1);
+		}
+
+		.testimonial::before {
+			content: '\201C';
+			display: block;
+			font-family: var(--font-body);
+			font-size: 3.5rem;
+			line-height: 1;
+			color: var(--accent);
+			opacity: 0.35;
+			margin-bottom: var(--space-3);
+			user-select: none;
+			pointer-events: none;
 		}
 
 		.testimonial-quote {
+			font-family: var(--font-body);
 			font-size: var(--text-base);
-			font-weight: 300;
-			line-height: 1.8;
 			font-style: italic;
+			line-height: 1.9;
 			color: var(--text-primary);
-			margin-bottom: var(--space-5);
+			margin-bottom: var(--space-6);
 		}
 
-		.testimonial-quote::before { content: '\201C'; }
-		.testimonial-quote::after  { content: '\201D'; }
-
 		.testimonial-author {
+			font-family: var(--font-display);
 			font-size: var(--text-xs);
 			font-weight: 700;
 			letter-spacing: 0.1em;
@@ -585,23 +632,24 @@
 
 		.contact-inner {
 			display: grid;
-			grid-template-columns: 1fr 320px;
+			grid-template-columns: 1fr 280px;
 			gap: var(--space-16);
 			align-items: center;
 		}
 
 		.contact-title {
-			font-size: var(--text-4xl);
-			font-weight: 600;
-			line-height: 1.1;
+			font-family: var(--font-display);
+			font-size: clamp(2rem, 4.5vw, 3.5rem);
+			font-weight: 700;
+			line-height: 1.05;
 			letter-spacing: -0.02em;
 			margin-bottom: var(--space-6);
 		}
 
 		.contact-body {
+			font-family: var(--font-body);
 			font-size: var(--text-lg);
-			font-weight: 300;
-			line-height: 1.75;
+			line-height: 1.8;
 			color: var(--text-secondary);
 			max-width: 52ch;
 			margin-bottom: var(--space-8);
@@ -611,6 +659,7 @@
 			display: inline-flex;
 			align-items: center;
 			gap: var(--space-3);
+			font-family: var(--font-display);
 			font-size: var(--text-2xl);
 			font-weight: 600;
 			letter-spacing: -0.01em;
@@ -625,11 +674,42 @@
 			text-decoration: none;
 		}
 
+		/* ── Photo placeholder ───────────────────────────────────────────── */
+
+		.contact-photo {
+			width: 100%;
+			max-width: 280px;
+			aspect-ratio: 3 / 4;
+			background: var(--bg-elevated);
+			border-radius: var(--radius-lg);
+			border: 1px solid var(--bg-elevated-l1);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.photo-placeholder {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: var(--space-3);
+			color: var(--text-secondary);
+			opacity: 0.4;
+		}
+
+		.photo-placeholder span {
+			font-family: var(--font-display);
+			font-size: var(--text-xs);
+			font-weight: 700;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+		}
+
 		/* ── Footer ──────────────────────────────────────────────────────── */
 
 		.site-footer {
 			padding: var(--space-8) 0;
-			border-top: 1px solid var(--bg-surface);
+			border-top: 1px solid var(--rule);
 		}
 
 		.footer-inner {
@@ -639,6 +719,7 @@
 		}
 
 		.footer-copy {
+			font-family: var(--font-display);
 			font-size: var(--text-xs);
 			font-weight: 500;
 			letter-spacing: 0.05em;
@@ -680,13 +761,14 @@
 				grid-template-columns: 1fr;
 			}
 
-			.hero-photo {
-				width: 180px;
+			.contact-photo {
+				max-width: 200px;
 				margin: 0 auto;
 			}
 
-			.skills-grid {
+			.skill-item {
 				grid-template-columns: 1fr;
+				gap: var(--space-4);
 			}
 
 			.testimonials {
@@ -695,6 +777,17 @@
 
 			.about-sidebar {
 				grid-template-columns: 1fr;
+			}
+
+			.stats-display {
+				grid-template-columns: 1fr;
+			}
+
+			.stat-item + .stat-item {
+				padding-left: 0;
+				padding-top: var(--space-8);
+				border-left: none;
+				border-top: 1px solid var(--rule);
 			}
 
 			.footer-inner {
@@ -713,20 +806,12 @@
 				padding: 0 var(--space-4);
 			}
 
-			.hero-title {
-				font-size: var(--text-5xl);
-			}
-
 			.contact-title {
 				font-size: var(--text-3xl);
 			}
 
 			.contact-link {
 				font-size: var(--text-xl);
-			}
-
-			.stat-row {
-				grid-template-columns: 1fr;
 			}
 		}
 
@@ -789,18 +874,16 @@
 	<section class="hero" id="hero" aria-labelledby="hero-heading">
 		<div class="container hero-inner">
 
-			<div class="hero-content">
-				<span class="hero-eyebrow">Principal Engineer · Manager · Leader</span>
-				<h1 class="hero-title" id="hero-heading">
-					What's<br><span class="accent">Next?</span>
-				</h1>
-				<p class="hero-tagline">
-					25 years of building software. A career defined by what's possible tomorrow.
-				</p>
-				<a href="#contact" class="hero-cta">
-					Let's talk <span aria-hidden="true">→</span>
-				</a>
-			</div>
+			<span class="hero-eyebrow">Principal Engineer · Manager · Leader</span>
+			<h1 class="hero-title" id="hero-heading">
+				What's<br><span class="accent">Next?</span>
+			</h1>
+			<p class="hero-tagline">
+				25 years of building software. A career defined by what's possible tomorrow.
+			</p>
+			<a href="#contact" class="hero-cta">
+				Let's talk <span aria-hidden="true">→</span>
+			</a>
 
 		</div>
 	</section>
@@ -836,14 +919,17 @@
 
 				<div class="about-sidebar">
 					<div class="value-card reveal">
+						<div class="value-number" aria-hidden="true">01</div>
 						<div class="value-label">Craftsmanship</div>
 						<div class="value-text">Good code reads like good prose. Clarity of intent, no unnecessary complexity, nothing left to chance.</div>
 					</div>
 					<div class="value-card reveal reveal-d1">
+						<div class="value-number" aria-hidden="true">02</div>
 						<div class="value-label">Empathy</div>
 						<div class="value-text">The best engineering decisions start with understanding people — the users, the team, the business.</div>
 					</div>
 					<div class="value-card reveal reveal-d2">
+						<div class="value-number" aria-hidden="true">03</div>
 						<div class="value-label">Originality</div>
 						<div class="value-text">Convention is a starting point, not a constraint. I'd rather ask the right question than follow the obvious path.</div>
 					</div>
@@ -863,36 +949,39 @@
 				<h2 class="section-title" id="skills-heading">What I bring</h2>
 			</div>
 
-			<div class="skills-grid">
+			<div class="skills-list">
 
-				<article class="skill-card reveal">
-					<svg class="skill-icon" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-						<!-- Phosphor Code icon -->
-						<path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"/>
-					</svg>
-					<h3 class="skill-name">Engineering Craft</h3>
-					<p class="skill-hook">Two and a half decades across the full stack.</p>
-					<p class="skill-body">Distributed systems, APIs, service architecture, modern delivery practices. A strong belief that good code reads like good prose — clear intent, no unnecessary complexity.</p>
+				<article class="skill-item reveal">
+					<div class="skill-meta">
+						<span class="skill-num" aria-hidden="true">01</span>
+						<h3 class="skill-name">Engineering<br>Craft</h3>
+					</div>
+					<div class="skill-content">
+						<p class="skill-hook">Two and a half decades across the full stack.</p>
+						<p class="skill-body">Distributed systems, APIs, service architecture, modern delivery practices. A strong belief that good code reads like good prose — clear intent, no unnecessary complexity.</p>
+					</div>
 				</article>
 
-				<article class="skill-card reveal reveal-d1">
-					<svg class="skill-icon" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-						<!-- Phosphor Users icon -->
-						<path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"/>
-					</svg>
-					<h3 class="skill-name">Leadership &amp; People</h3>
-					<p class="skill-hook">Technical leadership is about making the people around you more effective.</p>
-					<p class="skill-body">I've led teams as principal engineer, tech lead, and engineering manager. Comfortable presenting to stakeholders and pairing with engineers. Hired, mentored, and built culture.</p>
+				<article class="skill-item reveal reveal-d1">
+					<div class="skill-meta">
+						<span class="skill-num" aria-hidden="true">02</span>
+						<h3 class="skill-name">Leadership<br>&amp; People</h3>
+					</div>
+					<div class="skill-content">
+						<p class="skill-hook">Technical leadership is about making the people around you more effective.</p>
+						<p class="skill-body">I've led teams as principal engineer, tech lead, and engineering manager. Comfortable presenting to stakeholders and pairing with engineers. Hired, mentored, and built culture — and done the hard work of turning struggling teams around.</p>
+					</div>
 				</article>
 
-				<article class="skill-card reveal reveal-d2">
-					<svg class="skill-icon" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-						<!-- Phosphor Lightbulb icon -->
-						<path d="M176,232a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,232Zm40-128a88,88,0,0,1-32.64,68.21A16.24,16.24,0,0,0,176,186v6a16,16,0,0,1-16,16H96a16,16,0,0,1-16-16v-6a16,16,0,0,0-7.36-13.79A88,88,0,0,1,128,16a88.1,88.1,0,0,1,88,88Zm-16,0a72,72,0,1,0-120.5,53.29A32.26,32.26,0,0,1,96,186v6h64v-6a32.15,32.15,0,0,1,12.48-25.71A71.8,71.8,0,0,0,200,104Z"/>
-					</svg>
-					<h3 class="skill-name">AI &amp; What's Next</h3>
-					<p class="skill-hook">Agentic AI isn't the future of software. It's the present, if you're paying attention.</p>
-					<p class="skill-body">Hands-on with LLM toolchains, agentic systems, and autonomous workflow design. Building at the frontier and thinking seriously about how AI changes teams, processes, and organisations.</p>
+				<article class="skill-item reveal reveal-d2">
+					<div class="skill-meta">
+						<span class="skill-num" aria-hidden="true">03</span>
+						<h3 class="skill-name">AI &amp;<br>What's Next</h3>
+					</div>
+					<div class="skill-content">
+						<p class="skill-hook">Agentic AI isn't the future of software. It's the present, if you're paying attention.</p>
+						<p class="skill-body">Hands-on with LLM toolchains, agentic systems, and autonomous workflow design. Building at the frontier and thinking seriously about how AI changes teams, processes, and organisations.</p>
+					</div>
 				</article>
 
 			</div>
@@ -909,17 +998,17 @@
 				<h2 class="section-title" id="recognition-heading">A career built on outcomes.</h2>
 			</div>
 
-			<div class="stat-row">
-				<div class="stat-card reveal">
-					<span class="stat-number">25+</span>
+			<div class="stats-display">
+				<div class="stat-item reveal">
+					<span class="stat-value">25+</span>
 					<span class="stat-label">Years Engineering</span>
 				</div>
-				<div class="stat-card reveal reveal-d1">
-					<span class="stat-number">—</span>
+				<div class="stat-item reveal reveal-d1">
+					<span class="stat-value">—</span>
 					<span class="stat-label">Your metric here</span>
 				</div>
-				<div class="stat-card reveal reveal-d2">
-					<span class="stat-number">—</span>
+				<div class="stat-item reveal reveal-d2">
+					<span class="stat-value">—</span>
 					<span class="stat-label">Your metric here</span>
 				</div>
 			</div>
@@ -959,8 +1048,8 @@
 					</a>
 				</div>
 
-				<div class="hero-photo reveal reveal-d1" role="img" aria-label="Photo of James Maggs">
-					<div class="hero-photo-placeholder" aria-hidden="true">
+				<div class="contact-photo reveal reveal-d1" role="img" aria-label="Photo of James Maggs">
+					<div class="photo-placeholder" aria-hidden="true">
 						<svg width="48" height="48" viewBox="0 0 256 256" fill="currentColor">
 							<path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/>
 						</svg>
@@ -993,16 +1082,41 @@
 <script>
 	document.documentElement.classList.add('js');
 
-	const observer = new IntersectionObserver((entries) => {
+	/* ── Scroll reveal ──────────────────────────────────────────────── */
+	const revealObserver = new IntersectionObserver((entries) => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
 				entry.target.classList.add('visible');
-				observer.unobserve(entry.target);
+				revealObserver.unobserve(entry.target);
 			}
 		});
 	}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-	document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+	document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+	/* ── Header scroll state ────────────────────────────────────────── */
+	const header = document.querySelector('.site-header');
+	window.addEventListener('scroll', () => {
+		header.classList.toggle('scrolled', window.scrollY > 20);
+	}, { passive: true });
+
+	/* ── Active nav section tracking ───────────────────────────────── */
+	const navLinks = document.querySelectorAll('.primary-nav a[href^="#"]');
+	const sections = document.querySelectorAll('main section[id]');
+
+	const navObserver = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				const id = entry.target.getAttribute('id');
+				navLinks.forEach(link => {
+					const matches = link.getAttribute('href') === `#${id}`;
+					link.setAttribute('aria-current', matches ? 'true' : 'false');
+				});
+			}
+		});
+	}, { threshold: 0.4 });
+
+	sections.forEach(section => navObserver.observe(section));
 </script>
 
 </body>
