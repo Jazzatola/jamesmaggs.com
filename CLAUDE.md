@@ -40,7 +40,7 @@ Tone: quietly confident. No exclamation points. No superlatives. No buzzwords.
 
 **Anti-reference:** Generic dark developer portfolios — cyan-on-dark, purple gradients, icon-left-text-right template layouts.
 
-**Typography pairing:** League Spartan (primary, already implemented) as the geometric sans. Open to adding a contrasting editorial serif for body text. Look at Gloock, Libre Caslon Display, or similar editorial-weight serifs — nothing from the impeccable reflex-banned list.
+**Typography pairing:** League Spartan (geometric sans) for all display, headings, labels, and UI text. Bitter (screen-optimised serif) for body paragraphs, testimonials, and italic skill hooks.
 
 ### Design Principles
 
