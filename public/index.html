@@ -669,21 +669,25 @@
 		.logo-strip-logos {
 			display: flex;
 			align-items: center;
+			justify-content: center;
 			gap: var(--space-12);
 			flex-wrap: wrap;
 		}
 
 		.logo-strip-logos img {
-			height: 28px;
+			height: 24px;
 			width: auto;
 			opacity: 0.45;
-			filter: grayscale(1) brightness(2);
-			transition: opacity var(--duration-fast) var(--ease);
+			filter: brightness(0) invert(1);
 		}
 
-		.logo-strip-logos img:hover {
-			opacity: 0.75;
-		}
+		/* Compensate for extreme aspect ratios */
+		.logo-strip-logos img[alt="Springer Nature"] { height: 16px; }
+		.logo-strip-logos img[alt="Credit Suisse"]   { height: 16px; }
+
+		/* Square/compact marks need more height to hold visual weight */
+		.logo-strip-logos img[alt="Sky"]             { height: 36px; }
+		.logo-strip-logos img[alt="Currys"]          { height: 36px; }
 
 		/* ── Contact ─────────────────────────────────────────────────────── */
 
@@ -1075,11 +1079,18 @@
 			<div class="logo-strip reveal reveal-d1">
 				<span class="logo-strip-label">Companies I've worked with</span>
 				<div class="logo-strip-logos">
-					<img src="/images/logos/company-1.svg" alt="Company 1">
-					<img src="/images/logos/company-2.svg" alt="Company 2">
-					<img src="/images/logos/company-3.svg" alt="Company 3">
-					<img src="/images/logos/company-4.svg" alt="Company 4">
-					<img src="/images/logos/company-5.svg" alt="Company 5">
+					<img src="/images/logos/springer-nature.svg" alt="Springer Nature">
+					<img src="/images/logos/thoughtworks.svg" alt="Thoughtworks">
+					<img src="/images/logos/sky.svg" alt="Sky">
+					<img src="/images/logos/vodafone.svg" alt="Vodafone">
+					<img src="/images/logos/gousto.svg" alt="Gousto">
+					<img src="/images/logos/rightmove.svg" alt="Rightmove">
+					<img src="/images/logos/aol.svg" alt="AOL">
+					<img src="/images/logos/credit-suisse.svg" alt="Credit Suisse">
+					<img src="/images/logos/ubs.svg" alt="UBS">
+					<img src="/images/logos/rbs.svg" alt="RBS">
+					<img src="/images/logos/deutsche-bank.svg" alt="Deutsche Bank">
+					<img src="/images/logos/currys.svg" alt="Currys">
 				</div>
 			</div>
 
