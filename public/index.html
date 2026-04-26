@@ -588,39 +588,58 @@
 			color: var(--text-secondary);
 		}
 
-		.testimonials {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: var(--space-6);
-		}
-
 		.testimonial {
 			position: relative;
-			padding: var(--space-8) var(--space-8) var(--space-8);
+			padding: var(--space-12) var(--space-16);
 			background: var(--bg-surface);
 			border-radius: var(--radius-md);
+			display: grid;
+			grid-template-columns: auto 1fr;
+			gap: 0 var(--space-10);
+			align-items: start;
+			margin-bottom: var(--space-16);
 		}
 
-		.testimonial::before {
-			content: '\201C';
-			display: block;
+		.testimonial-mark {
 			font-family: var(--font-body);
-			font-size: 3.5rem;
-			line-height: 1;
+			font-size: 5rem;
+			line-height: 0.75;
 			color: var(--accent);
-			opacity: 0.35;
-			margin-bottom: var(--space-3);
+			opacity: 0.4;
 			user-select: none;
 			pointer-events: none;
+			margin-top: var(--space-2);
+		}
+
+		.testimonial-body {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-6);
 		}
 
 		.testimonial-quote {
 			font-family: var(--font-body);
-			font-size: var(--text-base);
+			font-size: var(--text-lg);
 			font-style: italic;
-			line-height: 1.9;
+			line-height: 1.85;
 			color: var(--text-primary);
-			margin-bottom: var(--space-6);
+		}
+
+		.testimonial-attribution {
+			display: flex;
+			align-items: center;
+			gap: var(--space-4);
+		}
+
+		.testimonial-avatar {
+			width: 44px;
+			height: 44px;
+			border-radius: 50%;
+			object-fit: cover;
+			flex-shrink: 0;
+			filter: grayscale(1);
+			mix-blend-mode: luminosity;
+			opacity: 0.75;
 		}
 
 		.testimonial-author {
@@ -630,6 +649,40 @@
 			letter-spacing: 0.1em;
 			text-transform: uppercase;
 			color: var(--text-secondary);
+		}
+
+		.logo-strip {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-8);
+		}
+
+		.logo-strip-label {
+			font-family: var(--font-display);
+			font-size: var(--text-xs);
+			font-weight: 700;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			color: var(--text-muted);
+		}
+
+		.logo-strip-logos {
+			display: flex;
+			align-items: center;
+			gap: var(--space-12);
+			flex-wrap: wrap;
+		}
+
+		.logo-strip-logos img {
+			height: 28px;
+			width: auto;
+			opacity: 0.45;
+			filter: grayscale(1) brightness(2);
+			transition: opacity var(--duration-fast) var(--ease);
+		}
+
+		.logo-strip-logos img:hover {
+			opacity: 0.75;
 		}
 
 		/* ── Contact ─────────────────────────────────────────────────────── */
@@ -760,8 +813,18 @@
 				gap: var(--space-4);
 			}
 
-			.testimonials {
+			.testimonial {
 				grid-template-columns: 1fr;
+				padding: var(--space-8);
+				gap: var(--space-4);
+			}
+
+			.testimonial-mark {
+				font-size: 3.5rem;
+			}
+
+			.logo-strip-logos {
+				gap: var(--space-8);
 			}
 
 			.about-sidebar {
@@ -998,15 +1061,26 @@
 				</div>
 			</div>
 
-			<div class="testimonials">
-				<blockquote class="testimonial reveal">
-					<p class="testimonial-quote">Your testimonial here — something a former colleague, manager, or report said about working with you.</p>
-					<footer class="testimonial-author">Name · Title · Company</footer>
-				</blockquote>
-				<blockquote class="testimonial reveal reveal-d1">
-					<p class="testimonial-quote">A second testimonial here — ideally from a different perspective: peer, direct report, or senior stakeholder.</p>
-					<footer class="testimonial-author">Name · Title · Company</footer>
-				</blockquote>
+			<blockquote class="testimonial reveal">
+				<span class="testimonial-mark" aria-hidden="true">&ldquo;</span>
+				<div class="testimonial-body">
+					<p class="testimonial-quote">James is a seasoned IT professional. He combines a thorough understanding of business/IT issues and questions with the ability to work with teams and people. This makes James a perfect bridge between business and IT. James' sensitivity to work with IT professionals and inspire them is a rare capacity in the IT field.</p>
+					<footer class="testimonial-attribution">
+						<img class="testimonial-avatar" src="/images/jos-wilschut.jpg" alt="Jos Wilschut">
+						<span class="testimonial-author">Jos Wilschut · Director of Business Systems and Operations · Springer Nature</span>
+					</footer>
+				</div>
+			</blockquote>
+
+			<div class="logo-strip reveal reveal-d1">
+				<span class="logo-strip-label">Companies I've worked with</span>
+				<div class="logo-strip-logos">
+					<img src="/images/logos/company-1.svg" alt="Company 1">
+					<img src="/images/logos/company-2.svg" alt="Company 2">
+					<img src="/images/logos/company-3.svg" alt="Company 3">
+					<img src="/images/logos/company-4.svg" alt="Company 4">
+					<img src="/images/logos/company-5.svg" alt="Company 5">
+				</div>
 			</div>
 
 		</div>
