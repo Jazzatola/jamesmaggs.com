@@ -1,69 +1,53 @@
 # Idea Brief
 
-A thoughtful, humane site that makes visitors curious - showing *how I think*. It should show I have good taste. Quietly confident, user-focused, and inviting, the site is designed to leave people with a simple feeling:
+A site that shows how I think. Not a portfolio — a professional presence. It should make visitors curious about the person, not just the credentials. Quietly confident, human, and forward-looking.
 
-> “This guy brings something different and vital for the future — and I want to talk to him.”
+The feeling a visitor should leave with:
+
+> "This person has been at the forefront since the beginning. They know what the next wave actually means. I want to talk to them."
 
 ## Why It Matters
 
-This site is a personal expression of values - craftsmanship, empathy, and originality - and a signal to potential collaborators that I’m someone worth connecting with.
+This site is a long-horizon investment in professional identity. It reflects values — craftsmanship, empathy, originality — and signals to peers and collaborators that James is someone worth knowing and thinking alongside.
 
-## Emotional Goals + Design Strategies
+## Emotional Goals
 
-### 1. “This guy could bring something different.”
-- **Emotion:** Intriguing Competence
-- **Tone:** Curious, lightly unconventional
-- **Design Cues:**
-    - Editorial layout with unexpected flourishes
-    - Thought-provoking headings or microcopy
-    - Clean aesthetic with one or two bold, memorable choices
+### 1. "This person has seen it all."
+- **Emotion:** Deep, earned credibility
+- **Tone:** Precise, unsentimental, no wasted words
+- **Design cues:** The story section carries this — a narrative arc from 1995 to now that reads as genuine history, not a CV
 
-### 2. “He knows his stuff.”
-- **Emotion:** Credible Confidence
-- **Tone:** Precise, insightful, focused
-- **Design Cues:**
-    - Clear case study structure (problem → decisions → impact)
-    - Well-crafted typography and layout rhythm
-    - Use of annotated visuals or diagrams to show process
+### 2. "They know what's real."
+- **Emotion:** Intellectual authority without arrogance
+- **Tone:** Conviction without certainty — "I think this is real" not "I have the answer"
+- **Design cues:** The Now section explains harness engineering as significance first, philosophy second, technique third
 
-### 3. “He cares about people.”
-- **Emotion:** Empathetic Integrity
-- **Tone:** Warm, principled, human
-- **Design Cues:**
-    - Case studies center user stories and impact
-    - Values statement or philosophy on About page
-    - Accessibility and inclusive language baked in
+### 3. "They're still curious."
+- **Emotion:** Alive, in-motion, not settled
+- **Tone:** Enthusiastic about the unknown, not performatively humble
+- **Design cues:** The "What's Next?" framing throughout — a question, not a declaration
 
-### 4. “I want to get in touch.”
-- **Emotion:** Approachable Magnetism
-- **Tone:** Conversational, sincere
-- **Design Cues:**
-    - Clear, friendly contact CTA (e.g., “Let’s talk” or “Say hello”)
-    - Minimal friction (simple form, email link)
-    - Optional: include an invitation in About section (“I’m always open to thoughtful collaborations or just good conversations.”)
+### 4. "I want to get in touch."
+- **Emotion:** Approachable peer, not unapproachable expert
+- **Tone:** Invitational, conversational, low friction
+- **Design cues:** Contact CTA filters for the right people — "If you're thinking about what's next too, let's talk"
 
-## Narrative / Theme
+## Narrative Theme
 
-The main hook will be the question "What's Next?" as the main site title. This communicates on several levels:
-- communicates curiosity.
-- communicates a focus on completion.
-- asks what does the future look like?
-- asks what future technologies are around the corner?
-- asks how can I help the reader?
+The site's central question is **"What's Next?"** — it operates on multiple levels:
+- A reflection on 30 years at the frontier of software engineering
+- A genuine statement of current curiosity about agentic systems
+- An open invitation to the visitor who's asking the same question
 
-This site isn't a showcase. It's a conversation starter - structured but spacious, quiet but memorable. Everything about the experience should reflect that spirit.
+The story arc: *I've been here since the beginning. I've seen which waves were real. Here's what I think the next one means — and I'm thrilled to be figuring it out.*
 
-## Success Looks Like…
+## What This Site Is Not
 
-- 3–5 meaningful conversations initiated through the site within 2 months
-- Comments from recruiters or peers like “Your site felt different in a good way”
-- Personal pride in sharing the site as a reflection of my thinking and craft
+- A CV online
+- A portfolio of case studies
+- A credentials showcase
+- A job-seeking site
 
-## Keywords
-- Future
-- Competence
-- Confidence
-- Empathy
-- Conversation
-- Integrity
+## Future Direction
 
+The site is designed to accommodate writing over time — short notes, observations, thinking-in-public about agentic engineering and what's next. This is not a current priority but the architecture should not foreclose it. Eleventy is the preferred path when writing is added.

@@ -1,17 +1,24 @@
 # Technical Brief
 
 - The source code itself is part of the product. The site should be standards compliant with clean, easy to read markup.
-- This will be a static site and not dependent on any particular language or framework other than vanilla html, css and javascript.
-- The site should be fully functional without javascript but can use javascript to provide an additional layer of functionality.
-- The site will be targeted at modern browsers and can make use of the latest html, css and javascript standards.
-- All colours will be specified in oklch format.
-- The site will meet AA WCAG compliance with keyboard navigation support.
-- The code will be hosted on GitHub, using GitHub Actions for CI/CD.
-- The site will be hosted on [Fly.io](http://fly.io/).
-- The site will use the domain [www.jamesmaggs.com](http://www.jamesmaggs.com/)
+- This is a static site with no dependency on any language, framework, or build tool. Vanilla HTML, CSS, and JavaScript only.
+- The site should be fully functional without JavaScript. JavaScript provides an additional layer of polish (scroll reveals, header state, active nav tracking) but is not required.
+- Targeted at modern browsers. Latest HTML, CSS, and JavaScript standards are in scope.
+- All colours specified in oklch format.
+- AA WCAG compliance with full keyboard navigation support.
+- Code hosted on GitHub with GitHub Actions for CI/CD.
+- Hosted on [Fly.io](https://fly.io/).
+- Domain: [www.jamesmaggs.com](https://www.jamesmaggs.com/)
 
 ## SEO & Analytics
-- People searching for me should find me, including via relevant terms.
-- The content should appear well in search results and previews. Use structured data (JSON-LD) for name, job title, etc.
-- Support for Open Graph (OO) and Twitter Cards.
 
+- People searching for James Maggs should find this site.
+- Structured data (JSON-LD) for name, job title, and relevant schema.
+- Open Graph and Twitter Card support.
+- Meta description and title tag should reflect the professional presence framing, not the CV framing.
+
+## Future: Writing Section
+
+When a writing section is added, the preferred path is **Eleventy** as a static site generator. The output remains static HTML — the constraint being relaxed is in build tooling, not the delivered site. The current HTML structure should remain clean and semantic enough to be templated without significant rework.
+
+Do not introduce a build step or dependencies until writing is actually being published.

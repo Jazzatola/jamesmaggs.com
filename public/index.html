@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>James Maggs — Principal Engineer, Manager &amp; Leader</title>
-	<meta name="description" content="Principal software engineer, engineering manager and leader with 25+ years experience. Specialising in agentic AI and the future of software delivery.">
+	<title>James Maggs — What's Next?</title>
+	<meta name="description" content="30 years at the frontier of software engineering. Building with agentic AI now. Thinking seriously about what comes next.">
 
 	<meta property="og:title" content="James Maggs — What's Next?">
 	<meta property="og:description" content="25 years of building software. A career defined by what's possible tomorrow.">
@@ -338,22 +338,10 @@
 			width: 100%;
 		}
 
-		.hero-eyebrow {
-			display: block;
-			font-family: var(--font-display);
-			font-size: var(--text-xs);
-			font-weight: 700;
-			letter-spacing: 0.14em;
-			text-transform: uppercase;
-			color: var(--text-secondary);
-			margin-bottom: var(--space-6);
-			animation: fade-up 400ms var(--ease-out) 100ms both;
-		}
-
 		.hero-title {
 			font-family: var(--font-display);
 			font-size: var(--text-hero);
-			font-weight: 800;
+			font-weight: 700;
 			line-height: 0.95;
 			letter-spacing: -0.03em;
 			margin-bottom: var(--space-10);
@@ -419,280 +407,137 @@
 			letter-spacing: -0.02em;
 		}
 
-		/* ── About ───────────────────────────────────────────────────────── */
+		/* ── Now ─────────────────────────────────────────────────────────── */
 
-		.about-inner {
+		.now-inner {
 			display: grid;
-			grid-template-columns: 1fr 300px;
+			grid-template-columns: 2fr 3fr;
 			gap: var(--space-16);
 			align-items: start;
 		}
 
-		.about-body {
-			display: flex;
-			flex-direction: column;
-			gap: var(--space-5);
-		}
-
-		.about-body p {
-			font-size: var(--text-lg);
-			line-height: 1.85;
-		}
-
-		.about-body em {
-			font-style: italic;
-			color: var(--accent);
-		}
-
-		.about-sidebar {
-			display: flex;
-			flex-direction: column;
-			gap: var(--space-3);
-		}
-
-		.value-card {
-			padding: var(--space-5) var(--space-6);
-			background: var(--bg-surface);
-			border-radius: var(--radius-md);
-		}
-
-		.value-number {
-			font-family: var(--font-display);
-			font-size: var(--text-xs);
-			font-weight: 700;
-			letter-spacing: 0.12em;
-			color: var(--text-secondary);
-			opacity: 0.55;
-			margin-bottom: var(--space-2);
-		}
-
-		.value-label {
-			font-family: var(--font-display);
-			font-size: var(--text-xs);
-			font-weight: 700;
-			letter-spacing: 0.12em;
-			text-transform: uppercase;
-			color: var(--accent);
-			margin-bottom: var(--space-3);
-		}
-
-		.value-text {
-			font-family: var(--font-body);
-			font-size: var(--text-base);
-			line-height: 1.75;
-		}
-
-		/* ── Skills ──────────────────────────────────────────────────────── */
-
-		.skills-list {
-			display: flex;
-			flex-direction: column;
-		}
-
-		.skill-item {
-			display: grid;
-			grid-template-columns: 240px 1fr;
-			gap: var(--space-12);
-			padding: var(--space-12) 0;
-			border-top: 1px solid var(--rule);
-		}
-
-		.skill-item:last-child {
-			border-bottom: 1px solid var(--rule);
-		}
-
-		.skill-meta {
-			display: flex;
-			flex-direction: column;
-			gap: var(--space-2);
-			padding-top: var(--space-1);
-		}
-
-		.skill-num {
-			font-family: var(--font-display);
-			font-size: var(--text-xs);
-			font-weight: 700;
-			letter-spacing: 0.12em;
-			color: var(--text-secondary);
-			opacity: 0.5;
-		}
-
-		.skill-name {
-			font-family: var(--font-display);
-			font-size: var(--text-2xl);
-			font-weight: 700;
-			letter-spacing: -0.02em;
-			line-height: 1.1;
-			color: var(--text-primary);
-		}
-
-		.skill-content {
-			display: flex;
-			flex-direction: column;
-			gap: var(--space-4);
-		}
-
-		.skill-hook {
-			font-family: var(--font-body);
-			font-size: var(--text-xl);
-			font-style: italic;
-			color: var(--accent);
-			line-height: 1.6;
-		}
-
-		.skill-body {
-			font-family: var(--font-body);
-			font-size: var(--text-base);
-			line-height: 1.85;
-			max-width: 62ch;
-		}
-
-		/* ── Recognition ─────────────────────────────────────────────────── */
-
-		.stats-display {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			border-top: 1px solid var(--rule);
-			border-bottom: 1px solid var(--rule);
-			margin-bottom: var(--space-16);
-		}
-
-		.stat-item {
-			padding: var(--space-10) 0;
-			padding-right: var(--space-8);
-		}
-
-		.stat-item + .stat-item {
-			padding-left: var(--space-8);
-			border-left: 1px solid var(--rule);
-		}
-
-		.stat-value {
-			display: block;
-			font-family: var(--font-display);
-			font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-			font-weight: 800;
-			line-height: 1;
-			letter-spacing: -0.04em;
-			font-variant-numeric: tabular-nums;
-			color: var(--accent);
-			margin-bottom: var(--space-3);
-		}
-
-		.stat-label {
-			font-family: var(--font-display);
-			font-size: var(--text-xs);
-			font-weight: 700;
-			letter-spacing: 0.1em;
-			text-transform: uppercase;
-			color: var(--text-secondary);
-		}
-
-		.testimonial {
-			position: relative;
-			padding: var(--space-12) var(--space-16);
-			background: var(--bg-surface);
-			border-radius: var(--radius-md);
-			display: grid;
-			grid-template-columns: auto 1fr;
-			gap: 0 var(--space-10);
-			align-items: start;
-			margin-bottom: var(--space-16);
-		}
-
-		.testimonial-mark {
-			font-family: var(--font-body);
-			font-size: 5rem;
-			line-height: 0.75;
-			color: var(--accent);
-			opacity: 0.4;
-			user-select: none;
-			pointer-events: none;
-			margin-top: var(--space-2);
-		}
-
-		.testimonial-body {
+		.now-body {
 			display: flex;
 			flex-direction: column;
 			gap: var(--space-6);
 		}
 
-		.testimonial-quote {
-			font-family: var(--font-body);
+		.now-body p {
 			font-size: var(--text-lg);
-			font-style: italic;
 			line-height: 1.85;
-			color: var(--text-primary);
 		}
 
-		.testimonial-attribution {
+		/* ── Story ───────────────────────────────────────────────────────── */
+
+		.story-inner {
+			display: grid;
+			grid-template-columns: 1fr 280px;
+			gap: var(--space-16);
+			align-items: start;
+		}
+
+		.story-framing {
+			font-size: var(--text-lg);
+			line-height: 1.85;
+			margin-bottom: var(--space-10);
+		}
+
+		.milestones {
+			list-style: none;
+		}
+
+		.milestone {
+			padding: var(--space-8) 0;
+			border-top: 1px solid var(--rule);
+		}
+
+		.milestone:last-child {
+			border-bottom: 1px solid var(--rule);
+		}
+
+		.milestone-label {
+			display: block;
+			font-family: var(--font-display);
+			font-size: var(--text-xs);
+			font-weight: 700;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+			color: var(--accent);
+			margin-bottom: var(--space-2);
+		}
+
+		.milestone-headline {
+			font-family: var(--font-display);
+			font-size: var(--text-xl);
+			font-weight: 700;
+			letter-spacing: -0.01em;
+			line-height: 1.2;
+			color: var(--text-primary);
+			margin-bottom: var(--space-3);
+		}
+
+		.milestone-body {
+			font-family: var(--font-body);
+			font-size: var(--text-base);
+			line-height: 1.8;
+			color: var(--text-secondary);
+		}
+
+		/* ── Pull quote ──────────────────────────────────────────────────── */
+
+		.pull-quote {
+			padding: var(--space-8);
+			background: var(--bg-surface);
+			border-radius: var(--radius-md);
+			position: sticky;
+			top: calc(var(--header-height) + var(--space-8));
+		}
+
+		.pull-quote-mark {
+			font-family: var(--font-body);
+			font-size: 3rem;
+			line-height: 0.75;
+			color: var(--accent);
+			opacity: 0.4;
+			user-select: none;
+			pointer-events: none;
+			display: block;
+			margin-bottom: var(--space-4);
+		}
+
+		.pull-quote-text {
+			font-family: var(--font-body);
+			font-size: var(--text-base);
+			font-style: italic;
+			line-height: 1.8;
+			color: var(--text-primary);
+			margin-bottom: var(--space-6);
+		}
+
+		.pull-quote-attribution {
 			display: flex;
 			align-items: center;
-			gap: var(--space-4);
+			gap: var(--space-3);
 		}
 
-		.testimonial-avatar {
-			width: 44px;
-			height: 44px;
+		.pull-quote-avatar {
+			width: 36px;
+			height: 36px;
 			border-radius: 50%;
 			object-fit: cover;
 			flex-shrink: 0;
 			filter: grayscale(1);
-			mix-blend-mode: luminosity;
-			opacity: 0.75;
+			opacity: 0.7;
 		}
 
-		.testimonial-author {
+		.pull-quote-author {
 			font-family: var(--font-display);
 			font-size: var(--text-xs);
 			font-weight: 700;
-			letter-spacing: 0.1em;
+			letter-spacing: 0.08em;
 			text-transform: uppercase;
 			color: var(--text-secondary);
 		}
-
-		.logo-strip {
-			display: flex;
-			flex-direction: column;
-			gap: var(--space-8);
-		}
-
-		.logo-strip-label {
-			font-family: var(--font-display);
-			font-size: var(--text-xs);
-			font-weight: 700;
-			letter-spacing: 0.1em;
-			text-transform: uppercase;
-			color: var(--text-muted);
-		}
-
-		.logo-strip-logos {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			column-gap: var(--space-12);
-			row-gap: var(--space-8);
-			flex-wrap: wrap;
-		}
-
-		.logo-strip-logos img {
-			height: 24px;
-			width: auto;
-			opacity: 0.45;
-			filter: brightness(0) invert(1);
-		}
-
-		.logo-row-break {
-			flex-basis: 100%;
-			height: 0;
-		}
-
-		/* Compensate for extreme aspect ratios */
-		.logo-strip-logos img[alt="Springer Nature"] { height: 16px; }
-		.logo-strip-logos img[alt="Credit Suisse"]   { height: 24px; }
-
-		/* Square/compact marks need more height to hold visual weight */
-		.logo-strip-logos img[alt="Sky"]             { height: 36px; }
 
 		/* ── Contact ─────────────────────────────────────────────────────── */
 
@@ -738,8 +583,6 @@
 			color: var(--interactive-d1);
 			text-decoration: none;
 		}
-
-		/* ── Photo placeholder ───────────────────────────────────────────── */
 
 		.contact-photo {
 			width: 100%;
@@ -797,13 +640,16 @@
 		/* ── Responsive ──────────────────────────────────────────────────── */
 
 		@media (max-width: 960px) {
-			.about-inner {
+			.now-inner {
 				grid-template-columns: 1fr;
 			}
 
-			.about-sidebar {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
+			.story-inner {
+				grid-template-columns: 1fr;
+			}
+
+			.pull-quote {
+				position: static;
 			}
 		}
 
@@ -815,40 +661,6 @@
 			.contact-photo {
 				max-width: 200px;
 				margin: 0 auto;
-			}
-
-			.skill-item {
-				grid-template-columns: 1fr;
-				gap: var(--space-4);
-			}
-
-			.testimonial {
-				grid-template-columns: 1fr;
-				padding: var(--space-8);
-				gap: var(--space-4);
-			}
-
-			.testimonial-mark {
-				font-size: 3.5rem;
-			}
-
-			.logo-strip-logos {
-				gap: var(--space-8);
-			}
-
-			.about-sidebar {
-				grid-template-columns: 1fr;
-			}
-
-			.stats-display {
-				grid-template-columns: 1fr;
-			}
-
-			.stat-item + .stat-item {
-				padding-left: 0;
-				padding-top: var(--space-8);
-				border-left: none;
-				border-top: 1px solid var(--rule);
 			}
 
 			.footer-inner {
@@ -902,9 +714,8 @@
 
 		<nav aria-label="Primary navigation">
 			<ul class="primary-nav">
-				<li><a href="#about">About</a></li>
-				<li><a href="#skills">Skills</a></li>
-				<li><a href="#recognition">Recognition</a></li>
+				<li><a href="#now">Now</a></li>
+				<li><a href="#story">Story</a></li>
 				<li><a href="#contact">Contact</a></li>
 			</ul>
 		</nav>
@@ -931,7 +742,6 @@
 	<section class="hero" id="hero" aria-labelledby="hero-heading">
 		<div class="container hero-inner">
 
-			<span class="hero-eyebrow">Principal Engineer · Manager · Leader</span>
 			<h1 class="hero-title" id="hero-heading">
 				What's<br><span class="accent">Next?</span>
 			</h1>
@@ -945,156 +755,106 @@
 		</div>
 	</section>
 
-	<!-- ── About ─────────────────────────────────────────────────────────── -->
+	<!-- ── Now ──────────────────────────────────────────────────────────── -->
 
-	<section class="section" id="about" aria-labelledby="about-heading">
+	<section class="section" id="now" aria-labelledby="now-heading">
 		<div class="container">
 
-			<div class="section-intro reveal">
-				<span class="eyebrow">About</span>
-				<h2 class="section-title" id="about-heading">
-					I build things that last,<br>and teams that thrive.
-				</h2>
-			</div>
+			<div class="now-inner">
 
-			<div class="about-inner">
-
-				<div class="about-body">
-					<p class="reveal">
-						Software engineering was never just about the code for me. It's about the decisions behind the code — the trade-offs, the consequences, the people who use what you build.
-					</p>
-					<p class="reveal reveal-d1">
-						Over 25 years I've worked as an engineer, a manager, and a leader. I've shipped consumer products and enterprise systems, built teams from scratch and inherited ones in trouble. I've worked at different scales, in different contexts, across the full breadth of the discipline.
-					</p>
-					<p class="reveal reveal-d2">
-						What stays constant is the question I keep asking: <em>what matters here, and how do we get it right?</em>
-					</p>
-					<p class="reveal reveal-d3">
-						Right now, my answer points to agentic AI — autonomous systems that can reason, plan, and act on behalf of people. I think it changes everything about how we build software. I'm deeply invested in understanding what that means, and in working with people who are serious about it too.
-					</p>
+				<div class="reveal">
+					<span class="eyebrow">Now</span>
+					<h2 class="section-title" id="now-heading">
+						Agentic AI isn't the future of software.<br>
+						It's the present, if you're paying attention.
+					</h2>
 				</div>
 
-				<div class="about-sidebar">
-					<div class="value-card reveal">
-						<div class="value-number" aria-hidden="true">01</div>
-						<div class="value-label">Craftsmanship</div>
-						<div class="value-text">Good code reads like good prose. Clarity of intent, no unnecessary complexity, nothing left to chance.</div>
-					</div>
-					<div class="value-card reveal reveal-d1">
-						<div class="value-number" aria-hidden="true">02</div>
-						<div class="value-label">Empathy</div>
-						<div class="value-text">The best engineering decisions start with understanding people — the users, the team, the business.</div>
-					</div>
-					<div class="value-card reveal reveal-d2">
-						<div class="value-number" aria-hidden="true">03</div>
-						<div class="value-label">Originality</div>
-						<div class="value-text">Convention is a starting point, not a constraint. I'd rather ask the right question than follow the obvious path.</div>
-					</div>
+				<div class="now-body">
+					<p class="reveal">Most of the conversation about AI in software engineering focuses on the wrong thing — tools that make individual developers faster. That's real, but it's not the interesting part.</p>
+					<p class="reveal reveal-d1">The interesting part is what happens when you treat AI agents as members of the team. When you design systems — harnesses — that orchestrate their work with the same feedforward and feedback controls you'd apply to any high-quality engineering process. Guides and sensors. Computational and inferential. Quality and speed, not quality <em>or</em> speed.</p>
+					<p class="reveal reveal-d2">I've spent thirty years caring about the same things: high quality, fast feedback, low defects, high throughput. The techniques have changed many times. The values haven't. What I'm building now is the application of those values to a genuinely new paradigm — and I think the teams that figure this out early will have an advantage that compounds.</p>
+					<p class="reveal reveal-d3">I don't know exactly where it goes from here. That's what makes it interesting.</p>
 				</div>
 
 			</div>
+
 		</div>
 	</section>
 
-	<!-- ── Skills ────────────────────────────────────────────────────────── -->
+	<!-- ── Story ────────────────────────────────────────────────────────── -->
 
-	<section class="section" id="skills" aria-labelledby="skills-heading">
+	<section class="section" id="story" aria-labelledby="story-heading">
 		<div class="container">
 
 			<div class="section-intro reveal">
-				<span class="eyebrow">Skills</span>
-				<h2 class="section-title" id="skills-heading">What I bring</h2>
+				<span class="eyebrow">Story</span>
+				<h2 class="section-title" id="story-heading">I've been here since the beginning.</h2>
 			</div>
 
-			<div class="skills-list">
+			<div class="story-inner">
 
-				<article class="skill-item reveal">
-					<div class="skill-meta">
-						<span class="skill-num" aria-hidden="true">01</span>
-						<h3 class="skill-name">Engineering<br>Craft</h3>
-					</div>
-					<div class="skill-content">
-						<p class="skill-hook">Two and a half decades across the full stack.</p>
-						<p class="skill-body">Distributed systems, APIs, service architecture, modern delivery practices. A strong belief that good code reads like good prose — clear intent, no unnecessary complexity.</p>
-					</div>
-				</article>
+				<div class="story-main">
+					<p class="story-framing reveal">I built my first website in 1995. Long enough ago that nobody knew what the web was for yet. In the thirty years since I've worked through every wave — the dot-com boom, the agile revolution, the rise of distributed systems, the first smartphone apps, and now this. Long enough to know which waves were real and which ones weren't. The ones that were real changed everything.</p>
 
-				<article class="skill-item reveal reveal-d1">
-					<div class="skill-meta">
-						<span class="skill-num" aria-hidden="true">02</span>
-						<h3 class="skill-name">Leadership<br>&amp; People</h3>
-					</div>
-					<div class="skill-content">
-						<p class="skill-hook">Technical leadership is about making the people around you more effective.</p>
-						<p class="skill-body">I've led teams as principal engineer, tech lead, and engineering manager. Comfortable presenting to stakeholders and pairing with engineers. Hired, mentored, and built culture — and done the hard work of turning struggling teams around.</p>
-					</div>
-				</article>
+					<ol class="milestones" aria-label="Career milestones">
 
-				<article class="skill-item reveal reveal-d2">
-					<div class="skill-meta">
-						<span class="skill-num" aria-hidden="true">03</span>
-						<h3 class="skill-name">AI &amp;<br>What's Next</h3>
-					</div>
-					<div class="skill-content">
-						<p class="skill-hook">Agentic AI isn't the future of software. It's the present, if you're paying attention.</p>
-						<p class="skill-body">Hands-on with LLM toolchains, agentic systems, and autonomous workflow design. Building at the frontier and thinking seriously about how AI changes teams, processes, and organisations.</p>
-					</div>
-				</article>
+						<li class="milestone reveal">
+							<span class="milestone-label">1995</span>
+							<h3 class="milestone-headline">First website.</h3>
+							<p class="milestone-body">The web was a blank canvas and nobody knew what it was for yet. I did.</p>
+						</li>
 
-			</div>
-		</div>
-	</section>
+						<li class="milestone reveal">
+							<span class="milestone-label">1998</span>
+							<h3 class="milestone-headline">One of the first internet banks.</h3>
+							<p class="milestone-body">The dot-com boom was in full swing. I was building financial infrastructure on the internet before most people trusted it with their money.</p>
+						</li>
 
-	<!-- ── Recognition ───────────────────────────────────────────────────── -->
+						<li class="milestone reveal">
+							<span class="milestone-label">ThoughtWorks</span>
+							<h3 class="milestone-headline">Extreme Programming at scale.</h3>
+							<p class="milestone-body">Joined ThoughtWorks and discovered what engineering at its best looks like — 65 engineers, pair programming, test-first, continuous integration. It changed how I think about craft permanently.</p>
+						</li>
 
-	<section class="section" id="recognition" aria-labelledby="recognition-heading">
-		<div class="container">
+						<li class="milestone reveal">
+							<span class="milestone-label">2016</span>
+							<h3 class="milestone-headline">Into management.</h3>
+							<p class="milestone-body">Started asking a different question: how do I make the people around me more effective? Moved from building software to building the conditions in which great software gets built.</p>
+						</li>
 
-			<div class="section-intro reveal">
-				<span class="eyebrow">Recognition</span>
-				<h2 class="section-title" id="recognition-heading">A career built on outcomes.</h2>
-			</div>
+						<li class="milestone reveal">
+							<span class="milestone-label">300 people</span>
+							<h3 class="milestone-headline">Six disciplines. Six countries.</h3>
+							<p class="milestone-body">Grew to lead a department of 300 across engineering, product, design, data, QA, and operations — distributed across Europe and beyond. The work was human: culture, clarity, trust.</p>
+						</li>
 
-			<div class="stats-display">
-				<div class="stat-item reveal">
-					<span class="stat-value">25+</span>
-					<span class="stat-label">Years Engineering</span>
+						<li class="milestone reveal">
+							<span class="milestone-label">2025</span>
+							<h3 class="milestone-headline">Back to the frontier.</h3>
+							<p class="milestone-body">A deliberate choice — I wanted to be building at the frontier again, not directing it from a distance. The timing turned out to be exactly right.</p>
+						</li>
+
+						<li class="milestone reveal">
+							<span class="milestone-label">Now</span>
+							<h3 class="milestone-headline">Harness engineering.</h3>
+							<p class="milestone-body">Designing the systems that let AI agents and humans build software together, with the same quality and rigour I've cared about for thirty years.</p>
+						</li>
+
+					</ol>
 				</div>
-				<div class="stat-item reveal reveal-d1">
-					<span class="stat-value">—</span>
-					<span class="stat-label">Your metric here</span>
-				</div>
-				<div class="stat-item reveal reveal-d2">
-					<span class="stat-value">—</span>
-					<span class="stat-label">Your metric here</span>
-				</div>
-			</div>
 
-			<blockquote class="testimonial reveal">
-				<span class="testimonial-mark" aria-hidden="true">&ldquo;</span>
-				<div class="testimonial-body">
-					<p class="testimonial-quote">James is a seasoned IT professional. He combines a thorough understanding of business/IT issues and questions with the ability to work with teams and people. This makes James a perfect bridge between business and IT. James' sensitivity to work with IT professionals and inspire them is a rare capacity in the IT field.</p>
-					<footer class="testimonial-attribution">
-						<img class="testimonial-avatar" src="/images/jos-wilschut.jpg" alt="Jos Wilschut">
-						<span class="testimonial-author">Jos Wilschut · Director of Business Systems and Operations · Springer Nature</span>
-					</footer>
-				</div>
-			</blockquote>
+				<aside class="story-sidebar" aria-label="Testimonial">
+					<blockquote class="pull-quote reveal">
+						<span class="pull-quote-mark" aria-hidden="true">&ldquo;</span>
+						<p class="pull-quote-text">James is a seasoned IT professional. He combines a thorough understanding of business/IT issues and questions with the ability to work with teams and people. This makes James a perfect bridge between business and IT. James' sensitivity to work with IT professionals and inspire them is a rare capacity in the IT field.</p>
+						<footer class="pull-quote-attribution">
+							<img class="pull-quote-avatar" src="/images/jos-wilschut.jpg" alt="Jos Wilschut">
+							<span class="pull-quote-author">Jos Wilschut · Director of Business Systems · Springer Nature</span>
+						</footer>
+					</blockquote>
+				</aside>
 
-			<div class="logo-strip reveal reveal-d1">
-				<div class="logo-strip-logos">
-					<img src="https://cdn.brandfetch.io/idot1Rm9Er/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1774332681181" alt="Springer Nature">
-					<img src="https://cdn.brandfetch.io/idzgvVj2ex/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1669637446487" alt="Thoughtworks">
-					<img src="https://cdn.brandfetch.io/idnfhoEiay/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1722426188414" alt="Sky">
-					<img src="https://cdn.brandfetch.io/id6HZwtapX/theme/light/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1727707076046" alt="Vodafone">
-					<img src="https://cdn.brandfetch.io/idBi2NDyf4/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1777189357279" alt="Rightmove">
-					<span class="logo-row-break"></span>
-					<img src="https://cdn.brandfetch.io/idp1LJc-gI/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1743493417766" alt="AOL">
-					<img src="https://cdn.brandfetch.io/id5R0NevJp/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667835410871" alt="Credit Suisse">
-					<img src="https://cdn.brandfetch.io/idfWi_8mFJ/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1679041848723" alt="UBS">
-					<img src="https://cdn.brandfetch.io/id5PmMuE2j/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1759213170411" alt="Deutsche Bank">
-					<img src="https://cdn.brandfetch.io/idPtVyVuMx/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1685971842430" alt="Gousto">
-				</div>
 			</div>
 
 		</div>
@@ -1108,10 +868,10 @@
 				<div class="contact-content">
 					<span class="eyebrow reveal">Contact</span>
 					<h2 class="contact-title reveal reveal-d1" id="contact-heading">
-						Let's talk about<br>what's next.
+						If you're thinking about<br>what's next too, let's talk.
 					</h2>
 					<p class="contact-body reveal reveal-d2">
-						I'm always open to interesting conversations — a new role, a collaboration, or just a good exchange of ideas about where this industry is going.
+						I'm not looking for the next role. I'm looking for the next good conversation — with someone who's serious about where this goes.
 					</p>
 					<a href="mailto:james@jamesmaggs.com" class="contact-link reveal reveal-d3">
 						<svg width="28" height="28" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
