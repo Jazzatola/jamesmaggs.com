@@ -373,18 +373,16 @@
 			text-transform: uppercase;
 			color: var(--interactive);
 			text-decoration: none;
-			border-bottom: 1px solid currentColor;
-			padding-bottom: 2px;
+			border: 1px solid var(--interactive);
+			padding: var(--space-3) var(--space-6);
+			border-radius: var(--radius-sm);
 			cursor: pointer;
-			transition:
-				gap var(--duration-base) var(--ease),
-				color var(--duration-fast) var(--ease);
 			animation: fade-up 400ms var(--ease-out) 500ms both;
 		}
 
 		.hero-cta:hover {
-			gap: var(--space-3);
-			color: var(--interactive-d1);
+			color: var(--bg-base);
+			background-color: var(--interactive);
 			text-decoration: none;
 		}
 
@@ -568,19 +566,24 @@
 		.contact-link {
 			display: inline-flex;
 			align-items: center;
-			gap: var(--space-3);
+			gap: var(--space-2);
 			font-family: var(--font-display);
-			font-size: var(--text-2xl);
-			font-weight: 600;
-			letter-spacing: -0.01em;
+			font-size: var(--text-xs);
+			font-weight: 700;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
 			color: var(--interactive);
+			background-color: transparent;
 			text-decoration: none;
+			border: 1px solid var(--interactive);
+			padding: var(--space-3) var(--space-6);
+			border-radius: var(--radius-sm);
 			cursor: pointer;
-			transition: color var(--duration-fast) var(--ease);
 		}
 
 		.contact-link:hover {
-			color: var(--interactive-d1);
+			color: var(--bg-base);
+			background-color: var(--interactive);
 			text-decoration: none;
 		}
 
@@ -677,10 +680,6 @@
 		@media (max-width: 640px) {
 			.container {
 				padding: 0 var(--space-4);
-			}
-
-			.contact-link {
-				font-size: var(--text-xl);
 			}
 		}
 
@@ -874,10 +873,7 @@
 						I'm not looking for the next role. I'm looking for the next good conversation — with someone who's serious about where this goes.
 					</p>
 					<a href="mailto:james@jamesmaggs.com" class="contact-link reveal reveal-d3">
-						<svg width="28" height="28" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-							<path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/>
-						</svg>
-						james@jamesmaggs.com
+						Let's talk <span aria-hidden="true">→</span>
 					</a>
 				</div>
 
