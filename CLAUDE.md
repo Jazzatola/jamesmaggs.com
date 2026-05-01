@@ -6,13 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 James Maggs' personal professional presence site — a long-horizon platform aimed at sharp technical peers (engineers, leaders, builders), with recruiters as a secondary audience. The job to be done: *"Is this person credible, interesting, and worth a conversation?"*
 
-It is **a single static HTML file** (`public/index.html`) with all CSS and JS inline. No build step, no framework, no package manager, no dependencies beyond two CDN-loaded assets (Google Fonts, feather-icons). Editing the site means editing that one file.
+It is **a static HTML page** (`public/index.html`) with one external stylesheet (`public/styles/main.css`) and a small inline `<script>`. No build step, no framework, no package manager, no dependencies beyond two CDN-loaded assets (Google Fonts, feather-icons).
 
 ## Architecture
 
-- `public/index.html` — the entire site. Inline `<style>` block at the top defines design tokens as CSS custom properties (`--bg-base`, `--accent`, type scale, spacing scale, easings) followed by component styles. Inline `<script>` at the bottom handles reveal-on-scroll and feather icon replacement.
+- `public/index.html` — markup for the entire site. Loads `/styles/main.css` via `<link>`. Inline `<script>` at the bottom handles reveal-on-scroll, scroll-spy nav highlighting, and feather icon replacement.
+- `public/styles/main.css` — all styles. Design tokens (`:root` custom properties — palette, type scale, spacing scale, easings) at the top, component styles below.
 - `public/404.html` — error page; served by Caddy via `handle_errors`.
-- `public/images/` — only place static assets live.
+- `public/images/` — only place static image assets live.
 - `Caddyfile` — serves `public/` on `:8080`, redirects apex → `www`, sets security headers, gzip/zstd, and rewrites 404s to `/404.html`.
 - `Dockerfile` — `caddy:2-alpine` + `Caddyfile` + `public/`. That's the whole image.
 - `fly.toml` — single Fly.io app (`jamesmaggs-com`), region `lhr`, scales to zero (`auto_stop_machines = "stop"`, `min_machines_running = 0`).
@@ -31,7 +32,7 @@ There are no scripts, lint, or tests. Common commands:
 
 ## Design system (do not drift)
 
-Tokens live in `:root` at the top of the `<style>` block in `index.html` — change them there, not at call sites.
+Tokens live in `:root` at the top of `public/styles/main.css` — change them there, not at call sites.
 
 - **Palette**: dark navy/slate backgrounds (`--bg-base` etc.) with a single warm amber accent `oklch(80% 0.158 75)`. Amber is a *signal*, used sparingly — one element per section at most.
 - **Typography**: League Spartan (display, 500–800) for headings/labels/UI; Bitter (serif, 400 + italic) for body and pull quotes. Do not introduce other typefaces.
@@ -41,7 +42,7 @@ Tokens live in `:root` at the top of the `<style>` block in `index.html` — cha
 
 ## Conventions
 
-- Tabs for indentation in `index.html` (match existing).
-- Keep everything inline — do not split into separate CSS/JS files or introduce a bundler. The single-file constraint is deliberate.
+- Tabs for indentation in `index.html` and `main.css` (match existing).
+- No build step, no bundler, no framework. Plain HTML/CSS/JS only. The small JS lives inline in `index.html`; CSS lives in `public/styles/main.css`.
 - New external dependencies (CDN scripts, fonts) need a strong reason; the current set is feather-icons and Google Fonts only.
 - Commits use sentence-case imperative subjects (see `git log`). Prefix with `[claude]` only for changes inside `.claude/` or to this `CLAUDE.md`.
