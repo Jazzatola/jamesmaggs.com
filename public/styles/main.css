@@ -334,18 +334,22 @@ a:hover {
 	font-weight: 700;
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
-	color: var(--interactive);
+	color: var(--bg-base);
+	background-color: var(--interactive);
 	text-decoration: none;
 	border: 1px solid var(--interactive);
 	padding: var(--space-3) var(--space-6);
 	border-radius: var(--radius-sm);
 	cursor: pointer;
+	transition:
+		background-color var(--duration-fast) var(--ease),
+		border-color var(--duration-fast) var(--ease);
 	animation: fade-up 400ms var(--ease-out) 500ms both;
 }
 
 .hero-cta:hover {
-	color: var(--bg-base);
-	background-color: var(--interactive);
+	background-color: var(--interactive-d1);
+	border-color: var(--interactive-d1);
 	text-decoration: none;
 }
 
@@ -599,18 +603,21 @@ a:hover {
 	font-weight: 700;
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
-	color: var(--interactive);
-	background-color: transparent;
+	color: var(--bg-base);
+	background-color: var(--interactive);
 	text-decoration: none;
 	border: 1px solid var(--interactive);
 	padding: var(--space-3) var(--space-6);
 	border-radius: var(--radius-sm);
 	cursor: pointer;
+	transition:
+		background-color var(--duration-fast) var(--ease),
+		border-color var(--duration-fast) var(--ease);
 }
 
 .contact-link:hover {
-	color: var(--bg-base);
-	background-color: var(--interactive);
+	background-color: var(--interactive-d1);
+	border-color: var(--interactive-d1);
 	text-decoration: none;
 }
 
