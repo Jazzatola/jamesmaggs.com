@@ -368,6 +368,26 @@ a:hover {
 	letter-spacing: -0.02em;
 }
 
+/* ── Welcome ─────────────────────────────────────────────────────── */
+
+.welcome-inner {
+	display: grid;
+	grid-template-columns: 2fr 3fr;
+	gap: var(--space-16);
+	align-items: start;
+}
+
+.welcome-body {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-6);
+}
+
+.welcome-body p {
+	font-size: var(--text-lg);
+	line-height: 1.85;
+}
+
 /* ── Now ─────────────────────────────────────────────────────────── */
 
 .now-inner {
@@ -650,6 +670,10 @@ a:hover {
 /* ── Responsive ──────────────────────────────────────────────────── */
 
 @media (max-width: 960px) {
+	.welcome-inner {
+		grid-template-columns: 1fr;
+	}
+
 	.now-inner {
 		grid-template-columns: 1fr;
 	}
