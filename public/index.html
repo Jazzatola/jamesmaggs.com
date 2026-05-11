@@ -311,21 +311,31 @@
 
 	/* ── Active nav section tracking ───────────────────────────────── */
 	const navLinks = document.querySelectorAll('.primary-nav a[href^="#"]');
-	const sections = document.querySelectorAll('main section[id]');
+	const sections = Array.from(document.querySelectorAll('main section[id]'));
+	let activeId = null;
 
-	const navObserver = new IntersectionObserver((entries) => {
-		entries.forEach(entry => {
-			if (entry.isIntersecting) {
-				const id = entry.target.getAttribute('id');
-				navLinks.forEach(link => {
-					const matches = link.getAttribute('href') === `#${id}`;
-					link.setAttribute('aria-current', matches ? 'true' : 'false');
-				});
+	function updateActiveNav() {
+		const trigger = 80;
+		const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+		let current = atBottom ? sections[sections.length - 1] : sections[0];
+		if (!atBottom) {
+			for (const section of sections) {
+				if (section.getBoundingClientRect().top <= trigger) {
+					current = section;
+				}
 			}
-		});
-	}, { threshold: 0.4 });
+		}
+		if (current.id !== activeId) {
+			activeId = current.id;
+			navLinks.forEach(link => {
+				const matches = link.getAttribute('href') === `#${activeId}`;
+				link.setAttribute('aria-current', matches ? 'true' : 'false');
+			});
+		}
+	}
 
-	sections.forEach(section => navObserver.observe(section));
+	window.addEventListener('scroll', updateActiveNav, { passive: true });
+	updateActiveNav();
 
 	feather.replace({ 'stroke-width': 2 });
 </script>
