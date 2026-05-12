@@ -15,10 +15,11 @@ It is **a static HTML page** (`public/index.html`) with one external stylesheet 
 - `public/404.html` — error page; reuses the site's stylesheet, header, and voice (eyebrow "404", "Not found.", a dry-warm body line). Served by Caddy via `handle_errors`.
 - `public/images/` — only place static image assets live.
 - `assets/` — local working drafts (e.g. `copy.md` while iterating on site copy). Untracked in git and not served by Caddy.
-- `Caddyfile` — serves `public/` on `:8080`, redirects apex → `www`, sets security headers, gzip/zstd, and rewrites 404s to `/404.html`.
+- `Caddyfile` — serves `public/` on `:8080`, redirects apex → `www`, sets security headers (including an `X-Served-By "{$HOSTING:unknown}"` diagnostic header), gzip/zstd, and rewrites 404s to `/404.html`.
 - `Dockerfile` — `caddy:2-alpine` + `Caddyfile` + `public/`. That's the whole image.
-- `fly.toml` — single Fly.io app (`jamesmaggs-com`), region `lhr`, scales to zero (`auto_stop_machines = "stop"`, `min_machines_running = 0`).
-- `.github/workflows/deploy.yml` — deploys on push to `main` **only when `public/**`, `Dockerfile`, `Caddyfile`, or `fly.toml` changes**. Edits to docs, CLAUDE.md, etc. will not trigger a deploy.
+- `.github/workflows/deploy.yml` — deploys on push to `main` **only when `public/**`, `Dockerfile`, or `Caddyfile` changes**. Edits to docs, CLAUDE.md, etc. will not trigger a deploy.
+
+Hosting is **Railway** (project `jamesmaggs-com`, service `jamesmaggs-com`, environment `production`). The service builds the Dockerfile and exposes port 8080. The `HOSTING` env var is set to `railway` in Railway so `X-Served-By` self-identifies the host. The custom domain `www.jamesmaggs.com` resolves to Railway (CNAME); the apex `jamesmaggs.com` is handled separately at the registrar (GoDaddy forwarding 301s to `https://www.jamesmaggs.com`).
 
 Site sections (in order): **Hero → Now → Story → Contact**. Nav: Now · My Story · Contact. A **Projects** section is planned between Now and Story to back up the agentic-engineering claims with verifiable artefacts; not yet built.
 
@@ -28,7 +29,7 @@ There are no scripts, lint, or tests. Common commands:
 
 - **Preview locally** — open `public/index.html` directly in a browser, or run any static server from `public/` (e.g. `python3 -m http.server 8000`).
 - **Run the production image locally** — `docker build -t jamesmaggs . && docker run -p 8080:8080 jamesmaggs`, then visit `http://localhost:8080`.
-- **Deploy** — push to `main` (CI handles it). Manual deploy: `flyctl deploy --remote-only`.
+- **Deploy** — push to `main` (CI handles it). Manual deploy: `railway up --service jamesmaggs-com --detach`.
 - **Manual workflow trigger** — `gh workflow run deploy.yml`.
 
 ## Design system (do not drift)
