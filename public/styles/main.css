@@ -389,9 +389,18 @@ body.menu-open .nav-toggle-icon--close {
 	animation: fade-up 400ms var(--ease-out) 500ms both;
 }
 
+.hero-cue [aria-hidden="true"] {
+	display: inline-block;
+	transition: transform var(--duration-base) var(--ease-out);
+}
+
 .hero-cue:hover {
 	color: var(--text-primary);
 	text-decoration: none;
+}
+
+.hero-cue:hover [aria-hidden="true"] {
+	transform: translateY(3px);
 }
 
 /* ── Section ─────────────────────────────────────────────────────── */
@@ -462,6 +471,27 @@ body.menu-open .nav-toggle-icon--close {
 	grid-template-columns: 1fr 48px 1fr;
 	align-items: start;
 	margin-bottom: var(--space-2);
+}
+
+.milestones .milestone:nth-child(1) { --stagger: 0ms; }
+.milestones .milestone:nth-child(2) { --stagger: 100ms; }
+.milestones .milestone:nth-child(3) { --stagger: 200ms; }
+.milestones .milestone:nth-child(4) { --stagger: 300ms; }
+.milestones .milestone:nth-child(5) { --stagger: 400ms; }
+.milestones .milestone:nth-child(6) { --stagger: 500ms; }
+.milestones .milestone:nth-child(7) { --stagger: 600ms; }
+
+.js .milestone.reveal {
+	transition-delay: var(--stagger, 0ms);
+}
+
+.js .milestone .milestone-dot {
+	opacity: 0;
+	transition: opacity var(--duration-base) var(--ease-out) calc(var(--stagger, 0ms) + 300ms);
+}
+
+.js .milestone.reveal.visible .milestone-dot {
+	opacity: 1;
 }
 
 .milestone-end {
@@ -542,6 +572,15 @@ body.menu-open .nav-toggle-icon--close {
 	user-select: none;
 	display: block;
 	margin-bottom: var(--space-6);
+}
+
+.js .story-coda .story-coda-mark {
+	opacity: 0;
+	transition: opacity 600ms var(--ease-out) 100ms;
+}
+
+.js .story-coda.visible .story-coda-mark {
+	opacity: 0.4;
 }
 
 .story-coda-quote {
@@ -641,10 +680,19 @@ body.menu-open .nav-toggle-icon--close {
 		border-color var(--duration-fast) var(--ease);
 }
 
+.contact-link [aria-hidden="true"] {
+	display: inline-block;
+	transition: transform var(--duration-base) var(--ease-out);
+}
+
 .contact-link:hover {
 	background-color: var(--interactive-d1);
 	border-color: var(--interactive-d1);
 	text-decoration: none;
+}
+
+.contact-link:hover [aria-hidden="true"] {
+	transform: translateX(3px);
 }
 
 .contact-photo {
@@ -839,6 +887,14 @@ body.menu-open .nav-toggle-icon--close {
 		opacity: 1;
 		transform: none;
 		transition: none;
+	}
+
+	.js .milestone .milestone-dot {
+		opacity: 1;
+	}
+
+	.js .story-coda .story-coda-mark {
+		opacity: 0.4;
 	}
 }
 
