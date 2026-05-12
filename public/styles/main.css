@@ -773,14 +773,6 @@ body.menu-open .nav-toggle-icon--close {
 	.now-inner {
 		grid-template-columns: 1fr;
 	}
-
-	.story-inner {
-		grid-template-columns: 1fr;
-	}
-
-	.pull-quote {
-		position: static;
-	}
 }
 
 @media (max-width: 768px) {
