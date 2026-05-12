@@ -113,6 +113,10 @@ components:
     backgroundColor: '{colors.accent}'
     rounded: '{rounded.full}'
     size: 10px
+  hero-mark:
+    backgroundColor: '{colors.accent}'
+    rounded: '{rounded.full}'
+    size: 'clamp(3rem, 8vw, 7rem)'
 ---
 
 ## Overview
@@ -134,7 +138,7 @@ The palette has three jobs:
 1. **Four bg- levels** (`bg-base` → `bg-elevated-l1`) substitute for shadow-based elevation. Cards and surfaces lift visually by tone, not by drop-shadow.
 2. **Two text levels** (`text-primary`, `text-secondary`) — primary near-white for the things you read, secondary for metadata, captions, and quietly receding copy.
 3. **Two ramps for two purposes**:
-   - `accent` (amber) is a *signal*, not decoration. It marks one thing per section: an eyebrow, a single emphasised word in the hero, a milestone dot, the testimonial quote mark.
+   - `accent` (amber) is a *signal*, not decoration. It marks one thing per section: the hero mark, an eyebrow, a milestone dot, the testimonial quote mark.
    - `interactive` (cyan-blue) is the colour of action: links, ghost-button outlines, focus rings. Distinct hue keeps "you can click this" separate from "look here".
 
 Hover states follow a strict ramp convention — every hover lands on the `-d1` token of whichever ramp the resting state used (links/ghost → interactive-d1, ghost button → fills with interactive, primary → would land on accent-d1). New components must follow the same rule rather than inventing one-off hover colours.
@@ -195,6 +199,7 @@ No component uses a `2xl` or fully-rounded "iOS card" radius. Don't add one.
 - **`site-header`** — fixed, 60px tall, `bg-base`. Pairs with the elevation shadow above when scrolled.
 - **`contact-photo`** — `rounded.lg` portrait frame with a thin `bg-elevated-l1` border. The only place a photograph appears.
 - **`milestone-dot`** — solid `accent`-coloured circle (10px) with a 3px `bg-base` ring punching through the timeline rule. Story section only.
+- **`hero-mark`** — solid `accent`-coloured circle, sized fluidly via `clamp(3rem, 8vw, 7rem)`, positioned absolutely in the hero at about 70% of the viewport horizontally, vertically centred with the content stack. Plays the role the eyebrow plays in the other sections: the hero's "one signal". Reads as a scaled-up sibling of `milestone-dot`. Fade-in animation lands after the cue (620 ms delay).
 
 Variants follow the spec's pattern of related-key naming (`button-ghost` / `button-ghost-hover`, `nav-link` / `nav-link-hover` / `nav-link-current`) rather than nested state objects.
 
@@ -202,7 +207,7 @@ Variants follow the spec's pattern of related-key naming (`button-ghost` / `butt
 
 **Do**
 
-- Use the amber `accent` as a signal — at most one element per section. Eyebrow, single hero word, milestone dot, testimonial mark.
+- Use the amber `accent` as a signal — at most one element per section. Hero mark, eyebrow, milestone dot, testimonial mark.
 - Keep hover states inside the existing ramps (links/ghost → `interactive-d1`, ghost button → fills with `interactive`, primary → `accent-d1`).
 - Vary section layouts. Asymmetric, left-aligned compositions are the house style.
 - Match the copy voice in any new content: long sentences, no exclamation points, no superlatives, no buzzwords.
