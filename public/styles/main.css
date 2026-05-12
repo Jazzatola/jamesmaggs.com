@@ -62,6 +62,8 @@
 
 	--rule:           oklch(36%  0.020 275);
 
+	--shadow-elevated: 0 8px 32px -4px oklch(14% 0.025 278 / 0.6);
+
 	--header-height: 60px;
 }
 
@@ -200,7 +202,7 @@ a:hover {
 
 .site-header.scrolled {
 	border-bottom-color: var(--bg-elevated);
-	box-shadow: 0 8px 32px -4px oklch(14% 0.025 278 / 0.6);
+	box-shadow: var(--shadow-elevated);
 }
 
 .header-inner {
@@ -228,11 +230,12 @@ a:hover {
 
 .primary-nav {
 	display: flex;
-	gap: var(--space-6);
+	gap: var(--space-2);
 	list-style: none;
 }
 
 .primary-nav a {
+	display: inline-block;
 	font-family: var(--font-display);
 	font-size: var(--text-xs);
 	font-weight: 700;
@@ -240,6 +243,7 @@ a:hover {
 	text-transform: uppercase;
 	color: var(--interactive);
 	text-decoration: none;
+	padding: var(--space-3) var(--space-2);
 	transition: color var(--duration-fast) var(--ease);
 }
 
@@ -261,7 +265,7 @@ a:hover {
 .header-contact {
 	display: flex;
 	align-items: center;
-	gap: var(--space-5);
+	gap: var(--space-1);
 	justify-content: flex-end;
 }
 
@@ -279,6 +283,8 @@ a:hover {
 .icon-link {
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	padding: var(--space-3);
 	cursor: pointer;
 }
 
@@ -374,22 +380,24 @@ a:hover {
 
 /* ── Welcome ─────────────────────────────────────────────────────── */
 
-.welcome-inner {
-	display: grid;
-	grid-template-columns: 2fr 3fr;
-	gap: var(--space-16);
-	align-items: start;
+.welcome-lede {
+	font-family: var(--font-display);
+	font-weight: 700;
+	font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+	line-height: 1;
+	letter-spacing: -0.035em;
+	color: var(--text-primary);
+	margin-top: var(--space-2);
+	margin-bottom: var(--space-8);
+	max-width: 12ch;
 }
 
-.welcome-body {
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-6);
-}
-
-.welcome-body p {
-	font-size: var(--text-lg);
-	line-height: 1.85;
+.welcome-statement {
+	font-family: var(--font-body);
+	font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+	line-height: 1.65;
+	color: var(--text-primary);
+	max-width: 48ch;
 }
 
 /* ── Now ─────────────────────────────────────────────────────────── */
@@ -670,7 +678,7 @@ a:hover {
 
 .footer-links {
 	display: flex;
-	gap: var(--space-6);
+	gap: var(--space-1);
 }
 
 .footer-links a {
@@ -687,10 +695,6 @@ a:hover {
 /* ── Responsive ──────────────────────────────────────────────────── */
 
 @media (max-width: 960px) {
-	.welcome-inner {
-		grid-template-columns: 1fr;
-	}
-
 	.now-inner {
 		grid-template-columns: 1fr;
 	}
