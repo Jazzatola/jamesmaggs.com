@@ -3,12 +3,49 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Not found — James Maggs</title>
+	<title>Not found · James Maggs</title>
+	<meta name="robots" content="noindex">
+
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;1,400&family=League+Spartan:wght@500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="/styles/main.css">
+
+	<style>
+		.error-page {
+			min-height: 100svh;
+			display: flex;
+			align-items: center;
+			padding: var(--space-24) 0;
+		}
+		.error-title {
+			font-family: var(--font-display);
+			font-size: var(--text-display);
+			font-weight: 700;
+			line-height: 1.1;
+			letter-spacing: -0.02em;
+			margin-bottom: var(--space-6);
+		}
+		.error-text {
+			font-family: var(--font-body);
+			font-size: var(--text-lg);
+			line-height: 1.85;
+			max-width: 52ch;
+		}
+	</style>
 </head>
 <body>
-	<main>
-		<h1>Not found</h1>
-		<p>That page doesn't exist. <a href="/">Back home</a>.</p>
-	</main>
+
+<main class="container error-page">
+	<div>
+		<span class="eyebrow">404</span>
+		<h1 class="error-title">Not found.</h1>
+		<p class="error-text">This page doesn't exist (or stopped existing). <a href="/">Back home</a>.</p>
+	</div>
+</main>
+
 </body>
 </html>
