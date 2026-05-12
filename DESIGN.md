@@ -19,7 +19,7 @@ colors:
 typography:
   hero:
     fontFamily: '"League Spartan", system-ui, sans-serif'
-    fontSize: 'clamp(3.75rem, 11vw, 8.5rem)'
+    fontSize: 'clamp(3.75rem, 11vw, 7rem)'
     fontWeight: 700
     lineHeight: 0.95
     letterSpacing: -0.03em
@@ -145,7 +145,7 @@ A note on conversion: the source CSS expresses every colour in `oklch()` for per
 
 Two voices, deliberately:
 
-- **League Spartan** (geometric sans, 500–800) for everything load-bearing in the UI: hero, section titles, milestone headlines, eyebrow labels, navigation, button text, the footer line.
+- **League Spartan** (geometric sans, 500–700) for everything load-bearing in the UI: hero, section titles, milestone headlines, eyebrow labels, navigation, button text, the footer line.
 - **Bitter** (slab-leaning serif, 400 + italic) for everything you actually read: prose paragraphs, pull-quotes, milestone bodies.
 
 The contrast between the two — geometric structure vs. warm reading serif — is the central typographic decision. A third typeface erodes it. Do not introduce one.
@@ -166,7 +166,7 @@ Letter-spacing is the workhorse for tone:
   - Story: a centre-spine zigzag with milestones alternating left and right of a vertical rule.
   - Contact: `1fr 280px` — copy on the left, a portrait photo on the right.
 - **Header**: fixed at 60px, `bg-base` background, hairline bottom border. The `.scrolled` state replaces the bottom border with `bg-elevated` and adds the elevation shadow described below.
-- **Mobile collapse**: at `768px` the multi-column grids collapse to a single column and the timeline drops its centre spine; below `640px` the container padding tightens to `spacing.4`. There is no hamburger menu — the nav stays inline because the link count is small.
+- **Mobile collapse**: at `768px` the multi-column grids collapse to a single column and the timeline drops its centre spine; below `640px` the container padding tightens to `spacing.4`. Below `768px` the inline nav links and contact icons move into a full-width drawer behind a hamburger toggle; the toggle's icon swaps between menu and close, the background is set `inert` while the drawer is open, and Escape closes it.
 
 ## Elevation & Depth
 
@@ -213,5 +213,5 @@ Variants follow the spec's pattern of related-key naming (`button-ghost` / `butt
 - Don't introduce a third typeface. League Spartan + Bitter is the system; a third voice flattens the contrast.
 - Don't apply `accent` to interactive elements. Interactive is a separate cool-blue ramp; mixing them collapses the "signal vs. action" distinction.
 - Don't add drop-shadows to cards or surfaces. Use a `bg-` level swap for elevation. The header scroll shadow is the only stacked shadow in the system.
-- Don't add a build step, framework, or bundler. The whole site is plain HTML/CSS with one inline `<script>`. New CDN dependencies need a strong reason; the current set is Google Fonts and feather-icons only.
+- Don't add a build step, framework, or bundler. The whole site is plain HTML/CSS with one inline `<script>`. New CDN dependencies need a strong reason; the current set is Google Fonts only. Icons are inline SVGs.
 - Don't reach for symmetric icon-left-text-right templates. They read as marketing.

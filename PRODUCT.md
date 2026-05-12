@@ -21,7 +21,7 @@ Voice rules (already enforced in copy):
 Sits in the **personal-craft site** territory — closer to an individual writer/engineer's site (Robin Sloan, Maggie Appleton, Drew Devault) or a studio/typographer's catalog (Klim Type Foundry, Pentagram, Frank Chimero) than to a corporate tech brand or an editorial magazine. Designed with care, individual voice, considered details that reward attention without announcing themselves.
 
 - **Theme**: dark. Slate-blue surfaces, warm amber as a single signal accent used sparingly (one element per section at most).
-- **Typography**: League Spartan (display, 500–800) paired with Bitter (serif, 400 + italic) for body and pull quotes. No other typefaces.
+- **Typography**: League Spartan (display, 500–700) paired with Bitter (serif, 400 + italic) for body and pull quotes. No other typefaces.
 - **Layout**: asymmetric, left-aligned, varied per section. The page has rhythm — no repeating templates, no identical card grids.
 
 Anti-references — what this is **not**:
