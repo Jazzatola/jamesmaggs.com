@@ -20,7 +20,7 @@ It is **a static HTML page** (`public/index.html`) with one external stylesheet 
 - `fly.toml` — single Fly.io app (`jamesmaggs-com`), region `lhr`, scales to zero (`auto_stop_machines = "stop"`, `min_machines_running = 0`).
 - `.github/workflows/deploy.yml` — deploys on push to `main` **only when `public/**`, `Dockerfile`, `Caddyfile`, or `fly.toml` changes**. Edits to docs, CLAUDE.md, etc. will not trigger a deploy.
 
-Site sections (in order): **Hero → Welcome → Now → Story → Contact**. Nav: Welcome · Now · My Story · Contact.
+Site sections (in order): **Hero → Now → Story → Contact**. Nav: Now · My Story · Contact. A **Projects** section is planned between Now and Story to back up the agentic-engineering claims with verifiable artefacts; not yet built.
 
 ## Common tasks
 
