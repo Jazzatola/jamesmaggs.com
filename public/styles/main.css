@@ -447,6 +447,7 @@ body.menu-open .nav-toggle-icon--close {
 .story-framing {
 	font-size: var(--text-lg);
 	line-height: 1.85;
+	max-width: 65ch;
 	margin-bottom: var(--space-12);
 }
 
