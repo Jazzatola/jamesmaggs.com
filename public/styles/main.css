@@ -17,7 +17,7 @@
 	--text-5xl:  4rem;
 
 	/* fluid headings */
-	--text-hero:    clamp(3.75rem, 11vw, 8.5rem);
+	--text-hero:    clamp(3.75rem, 11vw, 7rem);
 	--text-display: clamp(1.75rem, 3.5vw, 2.75rem);
 
 	/* spacing (4pt scale) */
@@ -58,7 +58,7 @@
 	--accent-d1:      oklch(72%  0.158  75);
 
 	--interactive:    oklch(70%  0.130 230);
-	--interactive-d1: oklch(62%  0.130 230);
+	--interactive-d1: oklch(65%  0.130 230);
 
 	--rule:           oklch(36%  0.020 275);
 
@@ -387,7 +387,6 @@ a:hover {
 	line-height: 1;
 	letter-spacing: -0.035em;
 	color: var(--text-primary);
-	margin-top: var(--space-2);
 	margin-bottom: var(--space-8);
 	max-width: 12ch;
 }
