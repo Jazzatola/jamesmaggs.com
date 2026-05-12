@@ -1,5 +1,8 @@
 {
   "sandbox": {
-    "enabled": true
+    "enabled": true,
+    "network": {
+      "allowLocalBinding": true
+    }
   }
 }
