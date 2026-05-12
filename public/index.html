@@ -337,19 +337,28 @@
 
 	/* ── Mobile menu ────────────────────────────────────────────────── */
 	const navToggle = document.querySelector('.nav-toggle');
-	const headerMenu = document.getElementById('header-menu');
+	const siteHeader = document.querySelector('.site-header');
+	const mainContent = document.getElementById('main-content');
+	const siteFooter = document.querySelector('.site-footer');
 
 	function setMenuOpen(open) {
 		document.body.classList.toggle('menu-open', open);
 		navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 		navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+		if (open) {
+			mainContent.setAttribute('inert', '');
+			siteFooter.setAttribute('inert', '');
+		} else {
+			mainContent.removeAttribute('inert');
+			siteFooter.removeAttribute('inert');
+		}
 	}
 
 	navToggle.addEventListener('click', () => {
 		setMenuOpen(!document.body.classList.contains('menu-open'));
 	});
 
-	headerMenu.querySelectorAll('a').forEach(link => {
+	siteHeader.querySelectorAll('a').forEach(link => {
 		link.addEventListener('click', () => setMenuOpen(false));
 	});
 

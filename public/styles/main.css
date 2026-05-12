@@ -799,6 +799,8 @@ body.menu-open .nav-toggle-icon--close {
 		gap: var(--space-12);
 		padding: var(--space-12) var(--space-8) var(--space-16);
 		background: var(--bg-surface);
+		overflow-y: auto;
+		overscroll-behavior: contain;
 		opacity: 0;
 		visibility: hidden;
 		transform: translateY(-8px);
