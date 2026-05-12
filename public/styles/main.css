@@ -798,7 +798,7 @@ body.menu-open .nav-toggle-icon--close {
 		flex-direction: column;
 		gap: var(--space-12);
 		padding: var(--space-12) var(--space-8) var(--space-16);
-		background: var(--bg-base);
+		background: var(--bg-surface);
 		opacity: 0;
 		visibility: hidden;
 		transform: translateY(-8px);
@@ -815,6 +815,11 @@ body.menu-open .nav-toggle-icon--close {
 		transition:
 			opacity var(--duration-base) var(--ease-out),
 			transform var(--duration-base) var(--ease-out);
+	}
+
+	body.menu-open .site-header {
+		box-shadow: var(--shadow-elevated);
+		border-bottom-color: var(--bg-elevated);
 	}
 
 	body.menu-open {
