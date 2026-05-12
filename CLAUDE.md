@@ -6,11 +6,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 James Maggs' personal professional presence site — a long-horizon platform aimed at sharp technical peers (engineers, leaders, builders), with recruiters as a secondary audience. The job to be done: *"Is this person credible, interesting, and worth a conversation?"*
 
-It is **a static HTML page** (`public/index.html`) with one external stylesheet (`public/styles/main.css`) and a small inline `<script>`. No build step, no framework, no package manager, no dependencies beyond two CDN-loaded assets (Google Fonts, feather-icons).
+It is **a static HTML page** (`public/index.html`) with one external stylesheet (`public/styles/main.css`) and a small inline `<script>`. No build step, no framework, no package manager. Only external dependency is Google Fonts; icons are inline SVGs.
 
 ## Architecture
 
-- `public/index.html` — markup for the entire site. Loads `/styles/main.css` via `<link>`. Inline `<script>` at the bottom handles reveal-on-scroll, scroll-spy nav highlighting, and feather icon replacement.
+- `public/index.html` — markup for the entire site. Loads `/styles/main.css` via `<link>`. Icons are inline SVGs. Inline `<script>` at the bottom handles reveal-on-scroll, scroll-spy nav highlighting, mobile menu, and a console greeting.
 - `public/styles/main.css` — all styles. Design tokens (`:root` custom properties — palette, type scale, spacing scale, easings) at the top, component styles below.
 - `public/404.html` — error page; served by Caddy via `handle_errors`.
 - `public/images/` — only place static image assets live.
