@@ -1,0 +1,9 @@
+# One apex domain per line. Blank lines and # comments are ignored.
+# Each domain is tested at: apex, www, and 3 random subdomains, over
+# both HTTP and HTTPS. Every variant must land at https://www.jamesmaggs.com.
+
+jamesmaggs.co.uk
+jamesmaggs.net
+jazzatola.com
+jazzatola.co.uk
+jazzatola.net
