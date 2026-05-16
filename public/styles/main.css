@@ -200,14 +200,7 @@ a:hover {
 	z-index: 100;
 	height: var(--header-height);
 	background-color: var(--bg-base);
-	border-bottom: 1px solid var(--bg-surface);
-	transition:
-		box-shadow var(--duration-base) var(--ease),
-		border-bottom-color var(--duration-base) var(--ease);
-}
-
-.site-header.scrolled {
-	border-bottom-color: var(--bg-elevated);
+	border-bottom: 1px solid var(--bg-elevated);
 	box-shadow: var(--shadow-elevated);
 }
 
@@ -358,7 +351,7 @@ body.menu-open .nav-toggle-icon--close {
 	display: flex;
 	align-items: center;
 	position: relative;
-	background: radial-gradient(ellipse 85% 30% at 50% 0%, oklch(34% 0.030 278), var(--bg-base) 70%);
+	background: radial-gradient(ellipse 90% 45% at 50% 0%, oklch(31% 0.030 278), var(--bg-base));
 }
 
 .hero-inner {
@@ -840,10 +833,6 @@ body.menu-open .nav-toggle-icon--close {
 	body.menu-open .header-menu {
 		max-height: 500px;
 		opacity: 1;
-	}
-
-	body.menu-open .site-header {
-		box-shadow: var(--shadow-elevated);
 	}
 
 	.header-menu .primary-nav {
