@@ -865,6 +865,10 @@ body.menu-open .nav-toggle-icon--close {
 		padding: 0 var(--space-4);
 	}
 
+	.hero-inner {
+		text-align: center;
+	}
+
 	.hero-meta {
 		font-size: var(--text-sm);
 		letter-spacing: 0.08em;
