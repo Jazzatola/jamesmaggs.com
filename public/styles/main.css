@@ -358,6 +358,7 @@ body.menu-open .nav-toggle-icon--close {
 	display: flex;
 	align-items: center;
 	position: relative;
+	background: radial-gradient(ellipse 85% 30% at 50% 0%, oklch(34% 0.030 278), var(--bg-base) 70%);
 }
 
 .hero-inner {
