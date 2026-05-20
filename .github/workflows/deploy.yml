@@ -25,6 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm install -g @railway/cli
-      - run: railway up --service jamesmaggs-com --detach
+      - run: railway up --service portfolio --detach
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
